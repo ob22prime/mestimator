@@ -427,8 +427,8 @@
                 </span>
                 <h4>1. Turnout Forecasting Model</h4>
               </div>
-              <p>Estimates total plate count $\hat{A}_m$ based on feature variables:</p>
-              <div class="formula-chip">Features: [Weekday, Meal Type, Exam Flag, Holiday, Weather, Prev Week Attendance]</div>
+              <p>Estimates expected diner attendance based on key input variables:</p>
+              <div class="formula-chip">Features: [Day of Week, Meal Shift, Academic Calendar, Weather, Prior Week Turnout]</div>
               <p class="sub-detail">Compares XGBoost vs. 7-Day Seasonal Moving Average.</p>
             </div>
 
@@ -440,7 +440,7 @@
                 <h4>2. Dish-Level Preference Matrix</h4>
               </div>
               <p>Distributes predicted diners into individual dish demand using historical popularity weights:</p>
-              <div class="formula-chip">Dish Demand $\hat{D}_{m,i} = \hat{A}_m \times \omega_{i} \times \alpha_{\text{preference}}$</div>
+              <div class="formula-chip">Dish Demand = Expected Diners × Historical Dish Popularity Ratio</div>
             </div>
           </div>
 
@@ -453,7 +453,7 @@
                 <h4>3. Recipe Yield & Batch Quantization</h4>
               </div>
               <p>Converts diner demand into physical cooking vessels under batch constraints:</p>
-              <div class="formula-chip">Quantity $Q_i = \text{BatchRound}\left( \hat{D}_{m,i} \times \text{PortionSize}_i + \text{SafetyBuffer}_i \right)$</div>
+              <div class="formula-chip">Prep Batch = (Diners × Portion Weight + 6.5% Buffer) rounded to Pot Size</div>
               <p class="sub-detail">Ensures food is cooked in realistic batch increments (e.g. 5kg pots or 20L kettles).</p>
             </div>
 
@@ -464,8 +464,8 @@
                 </span>
                 <h4>4. Asymmetric Shortage Guard</h4>
               </div>
-              <p>Running out of food is penalized heavily ($3.5\times$ penalty for shortage vs $1\times$ for minor surplus):</p>
-              <div class="formula-chip">Loss: $L(Q) = c_{\text{waste}} \cdot \max(0, Q - D) + 3.5 \cdot c_{\text{shortage}} \cdot \max(0, D - Q)$</div>
+              <p>Running out of food is penalized heavily (3.5× penalty for shortage vs 1× for minor surplus):</p>
+              <div class="formula-chip">Operational Penalty = Excess Waste Cost + 3.5 × (Shortage Penalty)</div>
             </div>
           </div>
         </div>
@@ -655,7 +655,7 @@
 
         <div class="two-col-grid" style="margin-top: 1rem;">
           <div class="feasibility-card">
-            <h4>📋 Prospective Daily Data Protocol (Started 10 Aug 2026)</h4>
+            <h4>Prospective Daily Data Protocol (Started 10 Aug 2026)</h4>
             <div class="data-fields-grid">
               <span class="df-tag">Date & Meal Type</span>
               <span class="df-tag">Full Menu Items</span>
@@ -691,7 +691,7 @@
 
         <div class="eval-grid">
           <div class="eval-card">
-            <div class="eval-title">🎯 Baseline Comparison Framework</div>
+            <div class="eval-title">Baseline Comparison Framework</div>
             <table class="eval-table">
               <thead>
                 <tr>
@@ -726,7 +726,7 @@
           </div>
 
           <div class="eval-card">
-            <div class="eval-title">📊 Key Operational Success Metrics</div>
+            <div class="eval-title">Key Operational Success Metrics</div>
             <ul class="metric-list">
               <li><strong>Forecast Accuracy:</strong> Weighted Absolute Percentage Error (WAPE) and Mean Absolute Error (MAE) for attendance & dish demand.</li>
               <li><strong>Wastage Reduction:</strong> Total kg of surplus food per 100 diners (target: reduce from ~12 kg to &lt; 4 kg per 100 diners).</li>
@@ -740,20 +740,20 @@
           <div class="ref-title">Key Academic & Regulatory References</div>
           <div class="ref-links">
             <a href="https://www.mdpi.com/2071-1050/17/2/379" target="_blank" rel="noreferrer" class="ref-item">
-              <span>📄 MDPI Sustainability (2025): <em>Forecasting Meal Demand in University Dining Facilities</em> [17(2), 379]</span>
+              <span>MDPI Sustainability (2025): <em>Forecasting Meal Demand in University Dining Facilities</em> [17(2), 379]</span>
             </a>
             <a href="https://fssai.gov.in/upload/knowledge_hub/7702660a6012297118Orange_Book_2nd_Edition_20_05_2021.pdf" target="_blank" rel="noreferrer" class="ref-item">
-              <span>📜 FSSAI Orange Book for Campuses: <em>Guidelines on Food Safety, Hygiene & Surplus Food Management</em></span>
+              <span>FSSAI Orange Book for Campuses: <em>Guidelines on Food Safety, Hygiene & Surplus Food Management</em></span>
             </a>
             <a href="https://fssai.gov.in/cms/food-safety-and-standards-regulations.php" target="_blank" rel="noreferrer" class="ref-item">
-              <span>⚖️ Food Safety and Standards (Recovery and Distribution of Surplus Food) Regulations, FSSAI</span>
+              <span>Food Safety and Standards (Recovery and Distribution of Surplus Food) Regulations, FSSAI</span>
             </a>
           </div>
         </div>
 
         <div class="conclusion-cta">
           <div class="cta-text">
-            <strong>Ready for Supervised Pilot:</strong> Dataset logging active since 10 Aug 2026. Codebase repository configured with zero-PII security and hosted PWA architecture.
+            <strong>Ready for Supervised Pilot:</strong> Daily data logging active with mess staff since 10 Aug 2026. Ready for live kitchen deployment.
           </div>
           <div class="viva-badge">Open for Questions & Professor Review</div>
         </div>
