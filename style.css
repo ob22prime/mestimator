@@ -249,43 +249,45 @@ body {
 .slide-cover {
   text-align: center;
   align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .cover-accent-tag {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--brand-sage);
   background: var(--brand-sage-light);
-  padding: 6px 16px;
+  padding: 6px 18px;
   border-radius: 999px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   display: inline-block;
 }
 
 .hero-title {
   font-family: var(--font-sans);
-  font-size: 4rem;
+  font-size: 3.8rem;
   font-weight: 800;
   color: var(--brand-forest);
   letter-spacing: -0.03em;
-  line-height: 1;
+  line-height: 1.05;
   margin-bottom: 12px;
 }
 
 .hero-subtitle {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--accent-terracotta);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .cover-card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
   width: 100%;
   margin-bottom: 28px;
 }
