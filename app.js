@@ -35,7 +35,7 @@ const speakerNotes = {
       "State our objective: Practical preparation recommendations before the cook lights the stove."
     ],
     vivaQ: "Professor Question: 'Why can't the mess simply cook when students arrive?'",
-    vivaA: "Answer: 'Institutional mess cooking operates in large 20–40 kg batches requiring 2+ hours of simmering. Food must be ready before the dining hall opens.'"
+    vivaA: "Answer: 'Institutional mess cooking operates in large 20 to 40 kg batches requiring 2+ hours of simmering. Food must be ready before the dining hall opens.'"
   },
   4: {
     heading: "Slide 4: Project Scope & Non-Goals",
