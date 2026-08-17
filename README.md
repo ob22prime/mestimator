@@ -34,7 +34,6 @@ The interactive web-based presentation deck (`index.html`) is structured strictl
 - `→` / `Space` / `PageDown`: Next Slide
 - `←` / `PageUp`: Previous Slide
 - `Home` / `End`: Jump to First / Last Slide
-- `N`: Toggle Presenter Speaking Notes & Viva Q&A Drawer
 - `O`: Toggle Slide Overview Grid
 - `F`: Toggle Fullscreen Presentation Mode
 - `Escape`: Close Overlays

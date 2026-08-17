@@ -6,117 +6,6 @@
 const TOTAL_SLIDES = 11;
 let currentSlideIndex = 1;
 
-// Speaker notes & viva defense tips for students
-const speakerNotes = {
-  1: {
-    heading: "Slide 1: Title & Operational Hook",
-    points: [
-      "Start by stating: 'Mestimator is an operational decision-support system specifically tailored for hostel mess managers to forecast item-level meal demand and avoid daily overcooking.'",
-      "Emphasize that this is NOT a hypothetical donation app, but an active, approved 17-week campus software engineering project in our hostel mess.",
-      "Highlight our core thesis: Predicting turnout and dish popularity directly converts into physical kitchen preparation batches (deghs, kg, liters)."
-    ],
-    vivaQ: "Professor Question: 'Why did you change from your original donation project?'",
-    vivaA: "Answer: 'MediMatch relied on third-party NGOs and regulatory medicine sharing which is impractical in one semester. Mestimator focuses on an immediate, measurable campus operational problem with accessible stakeholders and real prospective data.'"
-  },
-  2: {
-    heading: "Slide 2: Structure & Roadmap",
-    points: [
-      "Quickly introduce the 10-point presentation structure covering requirements, user model, decision architecture, offline PWA, and 17-week empirical pilot.",
-      "Keep it under 30 seconds: 'We will walk through the kitchen decision loop, mathematical quantization, security model, and our longitudinal evaluation.'"
-    ],
-    vivaQ: "Professor Question: 'Is this just a simple database CRUD app?'",
-    vivaA: "Answer: 'No, sir. The defensible contribution is the asymmetric decision model, kitchen vessel quantization, and live comparative evaluation against existing manager baselines.'"
-  },
-  3: {
-    heading: "Slide 3: Problem Context & Urgency",
-    points: [
-      "Explain the mess manager's current dilemma: Cooking for 800 registered residents based purely on intuition leads to huge waste on weekends and exam days.",
-      "Cite the manager interview: 'Perishable cooked food like Paneer or Dal cannot be saved overnight; once prepared, surplus is pure financial and environmental loss.'",
-      "State our objective: Practical preparation recommendations before the cook lights the stove."
-    ],
-    vivaQ: "Professor Question: 'Why can't the mess simply cook when students arrive?'",
-    vivaA: "Answer: 'Institutional mess cooking operates in large 20 to 40 kg batches requiring 2+ hours of simmering. Food must be ready before the dining hall opens.'"
-  },
-  4: {
-    heading: "Slide 4: Project Scope & Non-Goals",
-    points: [
-      "Clearly delineate what is IN scope (PWA, forecasting engine, batch optimizer, multi-mess config) and what is OUT of scope.",
-      "Strongly emphasize non-goals: NO medicine, NO student-to-student marketplace, NO black-box LLMs as forecasting core, NO automatic robotic kitchen control.",
-      "Show that staff retain 100% override control with audit logging."
-    ],
-    vivaQ: "Professor Question: 'Why not make student voting mandatory?'",
-    vivaA: "Answer: 'Students frequently vote and don't show up, or show up without voting. Student preferences are only an optional signal, not the core attendance foundation.'"
-  },
-  5: {
-    heading: "Slide 5: Operational Flow & Pipeline",
-    points: [
-      "Walk through the 6 stages: Menu ingest &rarr; Turnout prediction &rarr; Dish demand splitting &rarr; Batch recipe quantization &rarr; Staff override &rarr; Outcome feedback.",
-      "Point out the circular feedback loop at the bottom: Post-meal leftover weighing adaptively refines future model weights."
-    ],
-    vivaQ: "Professor Question: 'What happens when staff reject the recommendation?'",
-    vivaA: "Answer: 'Staff can override in 1 click by entering their adjusted quantity and reason (e.g., unexpected rain). The system logs this for model calibration.'"
-  },
-  6: {
-    heading: "Slide 6: Target Users & Kitchen UX",
-    points: [
-      "Highlight the three distinct user roles: Mess Manager (planner), Head Cook (execution in physical vessels), and Hostel Warden (weekly waste/cost audit).",
-      "Mention UX considerations: High contrast UI, large touch targets, physical units (kg, liters, deghs), and zero-training requirement."
-    ],
-    vivaQ: "Professor Question: 'Will the kitchen cooks actually use a complex web app?'",
-    vivaA: "Answer: 'Yes, because we display physical container counts (e.g. 2 large deghs) rather than statistical probabilities, taking under 30 seconds per meal.'"
-  },
-  7: {
-    heading: "Slide 7: System Features & Decision Engine",
-    points: [
-      "Explain the 4 mathematical building blocks: Turnout ML &rarr; Dish preference matrix &rarr; Recipe batch rounding &rarr; Asymmetric risk matrix.",
-      "Highlight the asymmetric loss formula: Stockout penalty is weighted 3.5x higher than surplus to ensure students never go hungry while still trimming 70%+ of waste.",
-      "Mention the Multi-Mess SaaS configuration for different hostel menus and dining schedules."
-    ],
-    vivaQ: "Professor Question: 'Why does the model use an asymmetric penalty?'",
-    vivaA: "Answer: 'Under-preparing causes student agitation and mess stockout crises, which is far worse than a slight 2 kg surplus buffer. The asymmetric loss aligns ML with mess operational realities.'"
-  },
-  8: {
-    heading: "Slide 8: Interfaces & Live Sandbox Demo",
-    points: [
-      "Demonstrate the interactive sandbox right on this slide! Drag the slider and change meal context to show dynamic batch calculations live.",
-      "Show how an 800-student weekend dinner is predicted at ~560 diners, saving ~18.5 kg food and ₹1,480 in a single meal shift without risk.",
-      "Mention offline resilience via IndexedDB caching during campus Wi-Fi drops."
-    ],
-    vivaQ: "Professor Question: 'How do you handle offline connectivity in the basement kitchen?'",
-    vivaA: "Answer: 'The PWA caches the latest daily model locally. Calculations run client-side in Javascript and sync automatically when internet reconnects.'"
-  },
-  9: {
-    heading: "Slide 9: Performance, Security & Quality Goals",
-    points: [
-      "Emphasize the strict zero-PII privacy guarantee: System only stores aggregate meal counts and food weights, never individual student biometric or card records.",
-      "Cover response latency (<400ms) and fallback mechanism (defaults to 14-day median if ML engine is unavailable).",
-      "Explain RBAC permissions (Manager vs Cook vs Warden)."
-    ],
-    vivaQ: "Professor Question: 'Are there any data privacy risks under GDPR/DPDP Act?'",
-    vivaA: "Answer: 'No, because we do not collect or store any personal student identifiers. All logs are aggregate mess-level operational figures.'"
-  },
-  10: {
-    heading: "Slide 10: Initial Planning, Feasibility & 17-Week Pilot",
-    points: [
-      "Explain our 4-phase semester roadmap: Baseline logging (Weeks 1-4), Model/PWA dev (Weeks 5-8), Supervised Live Pilot (Weeks 9-14), Longitudinal evaluation (Weeks 15-17).",
-      "Highlight our active data collection: Operational log started on 10 August 2026 via WhatsApp message records mapped to structured tables.",
-      "Show the standardized vessel mapping agreed with the manager."
-    ],
-    vivaQ: "Professor Question: 'How long will your live pilot run?'",
-    vivaA: "Answer: 'A continuous 6-week supervised live intervention in our hostel mess, comparing recommendation adherence against baseline weeks.'"
-  },
-  11: {
-    heading: "Slide 11: Conclusion, Baselines & References",
-    points: [
-      "Summarize the quantitative validation framework: Baseline 0 (Manager Status Quo), Baseline 1 (Previous Week), Baseline 2 (7-Day SMA) vs. Mestimator.",
-      "Highlight target KPIs: WAPE/MAE reduction, >25% food waste cut per 100 diners, zero unmanaged stockouts.",
-      "Reference the MDPI Sustainability 2025 dining study and official FSSAI campus surplus guidelines."
-    ],
-    vivaQ: "Professor Question: 'What if your model has high accuracy but cooks ignore it?'",
-    vivaA: "Answer: 'That is why recommendation acceptance rate and staff override logs are primary operational KPIs in our live evaluation, not just offline ML accuracy.'"
-  }
-};
-
 // -------------------------------------------------------------------
 // Slide Navigation & State Management
 // -------------------------------------------------------------------
@@ -164,9 +53,6 @@ function goToSlide(index) {
   // Update dots & thumbnail active state
   updateDotsState();
   updateThumbnailsState();
-  
-  // Update presenter notes
-  renderSpeakerNotes(currentSlideIndex);
   
   // Update URL hash without scrolling
   history.replaceState(null, null, `#slide-${currentSlideIndex}`);
@@ -245,39 +131,6 @@ function updateThumbnailsState() {
   });
 }
 
-// -------------------------------------------------------------------
-// Speaker Notes Panel
-// -------------------------------------------------------------------
-function renderSpeakerNotes(slideNum) {
-  const contentEl = document.getElementById('notesContent');
-  const note = speakerNotes[slideNum];
-  if (!note) {
-    contentEl.innerHTML = `<p class="dim">No additional presenter notes for Slide ${slideNum}.</p>`;
-    return;
-  }
-  
-  let pointsHtml = note.points.map(pt => `<li>${pt}</li>`).join('');
-  contentEl.innerHTML = `
-    <div class="notes-section">
-      <h5>${note.heading}</h5>
-      <ul>${pointsHtml}</ul>
-    </div>
-    <div class="viva-qa-box">
-      <div class="viva-q">${note.vivaQ}</div>
-      <div class="viva-a">${note.vivaA}</div>
-    </div>
-  `;
-}
-
-function toggleNotes(forceState) {
-  const drawer = document.getElementById('notesDrawer');
-  if (typeof forceState === 'boolean') {
-    drawer.classList.toggle('open', forceState);
-  } else {
-    drawer.classList.toggle('open');
-  }
-}
-
 function toggleOverview(forceState) {
   const modal = document.getElementById('overviewModal');
   if (typeof forceState === 'boolean') {
@@ -308,8 +161,6 @@ function setupEventListeners() {
   document.getElementById('btnPrev').addEventListener('click', prevSlide);
   
   // Header buttons
-  document.getElementById('btnNotes').addEventListener('click', () => toggleNotes());
-  document.getElementById('btnCloseNotes').addEventListener('click', () => toggleNotes(false));
   document.getElementById('btnOverview').addEventListener('click', () => toggleOverview());
   document.getElementById('btnCloseOverview').addEventListener('click', () => toggleOverview(false));
   document.getElementById('btnFullscreen').addEventListener('click', toggleFullscreen);
@@ -350,11 +201,6 @@ function setupEventListeners() {
         e.preventDefault();
         goToSlide(TOTAL_SLIDES);
         break;
-      case 'n':
-      case 'N':
-        e.preventDefault();
-        toggleNotes();
-        break;
       case 'o':
       case 'O':
         e.preventDefault();
@@ -367,7 +213,6 @@ function setupEventListeners() {
         break;
       case 'Escape':
         toggleOverview(false);
-        toggleNotes(false);
         break;
     }
   });
@@ -405,19 +250,14 @@ function updateKitchenDemo() {
 
   // Turnout multiplier based on meal/day context
   let turnoutMultiplier = 0.85; // default
-  let contextLabel = "Normal Turnout";
   if (mealContext === 'weekday_lunch') {
     turnoutMultiplier = 0.78;
-    contextLabel = "Weekday Lunch (~78% in mess)";
   } else if (mealContext === 'weekend_dinner') {
     turnoutMultiplier = 0.70;
-    contextLabel = "Weekend Dinner (~70%, outings high)";
   } else if (mealContext === 'exam_dinner') {
     turnoutMultiplier = 0.94;
-    contextLabel = "Exam Week Dinner (~94% high mess turnout)";
   } else if (mealContext === 'fest_lunch') {
     turnoutMultiplier = 0.62;
-    contextLabel = "Fest Day Lunch (~62% high food stalls)";
   }
 
   // Estimated Diners with confidence range
