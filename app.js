@@ -1,6 +1,6 @@
 // Presentation deck controls and kitchen recommender sandbox
 
-const TOTAL_SLIDES = 11;
+const TOTAL_SLIDES = 10;
 let currentSlideIndex = 1;
 
 // Slide navigation and state management
