@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mestimator — UCS503 Project Presentation | Mess Food Surplus Estimator</title>
+  <meta name="description" content="Mestimator: A Configurable Mess Demand and Food-Preparation Decision-Support System for UCS503 Software Engineering Course, Thapar Institute.">
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation & Presenter Bar -->
+  <header class="deck-header" id="deckHeader">
+    <div class="header-left">
+      <span class="badge-pill">UCS503 • SWE Project</span>
+      <span class="header-title">Mestimator <span class="dim">| Planning Presentation</span></span>
+    </div>
+    
+    <div class="header-center">
+      <span class="slide-indicator" id="slideIndicator">Slide 1 of 11</span>
+      <div class="deck-progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button class="nav-btn" id="btnNotes" title="Toggle Presenter Speaking Notes (Key: N)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        <span>Notes (N)</span>
+      </button>
+      <button class="nav-btn" id="btnOverview" title="Slide Grid View (Key: O)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Overview (O)</span>
+      </button>
+      <button class="nav-btn" id="btnFullscreen" title="Toggle Fullscreen (Key: F)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+        <span>Full (F)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Slide Stage Viewport -->
+  <main class="presentation-stage">
+    
+    <!-- SLIDE 1: Title & Cover -->
+    <section class="slide active" id="slide-1" data-index="1" data-title="Title & Overview">
+      <div class="slide-content slide-cover">
+        <div class="cover-accent-tag">UCS503 Software Engineering Course Project • 3rd Year (Sem 5)</div>
+        <h1 class="hero-title">Mestimator</h1>
+        <p class="hero-subtitle">Mess Food Surplus Estimator & Food-Waste Reduction Decision System</p>
+        
+        <div class="cover-card-grid">
+          <div class="meta-card">
+            <span class="meta-label">Domain</span>
+            <span class="meta-val">Campus Dining & Operational Decision Support</span>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Setting</span>
+            <span class="meta-val">Hostel Mess Facility (Thapar Campus)</span>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Batch & Team</span>
+            <span class="meta-val">Batch 3C15 • Group Presentation</span>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Supervised Pilot</span>
+            <span class="meta-val">17-Week Live Operational Trial</span>
+          </div>
+        </div>
+
+        <div class="cover-footer-bar">
+          <div class="core-statement">
+            <strong>Core Thesis:</strong> "Predict student meal turnout & dish demand &rarr; Recommend batch preparation quantities &rarr; Cut avoidable food waste without causing dining shortages."
+          </div>
+          <div class="key-hint">Press <kbd>&rarr;</kbd> or <kbd>Space</kbd> to proceed</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Table of Contents -->
+    <section class="slide" id="slide-2" data-index="2" data-title="Table of Contents">
+      <div class="slide-content">
+        <div class="section-badge">01 • Structure</div>
+        <h2 class="slide-heading">Table of Contents</h2>
+        <p class="slide-desc">A structured walkthrough of the project scope, decision pipeline, architecture, and live evaluation plan.</p>
+
+        <div class="toc-grid">
+          <div class="toc-item" onclick="goToSlide(3)">
+            <span class="toc-num">01</span>
+            <div class="toc-info">
+              <h4>Introduction & Background</h4>
+              <p>Problem context, hostel mess waste challenge, and presentation objectives.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(4)">
+            <span class="toc-num">02</span>
+            <div class="toc-info">
+              <h4>Project Scope & Boundaries</h4>
+              <p>Deliverables, in-scope decision models, and explicit non-goals.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(5)">
+            <span class="toc-num">03</span>
+            <div class="toc-info">
+              <h4>Proposed Functions & Workflow</h4>
+              <p>End-to-end 6-stage kitchen decision cycle and operational flow.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(6)">
+            <span class="toc-num">04</span>
+            <div class="toc-info">
+              <h4>Target Users & Operating Context</h4>
+              <p>Mess manager, kitchen staff, hall wardens, and usability requirements.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(7)">
+            <span class="toc-num">05</span>
+            <div class="toc-info">
+              <h4>System Features & Decision Engine</h4>
+              <p>Item-level forecasting, recipe yields, batch rounding, and uncertainty.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(8)">
+            <span class="toc-num">06</span>
+            <div class="toc-info">
+              <h4>Interfaces & High-Contrast PWA</h4>
+              <p>Interactive kitchen view, override logging, and offline sync model.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(9)">
+            <span class="toc-num">07</span>
+            <div class="toc-info">
+              <h4>Performance, Security & Quality</h4>
+              <p>Response SLAs, aggregate zero-PII privacy, and high-reliability design.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(10)">
+            <span class="toc-num">08</span>
+            <div class="toc-info">
+              <h4>Initial Planning & 17-Week Live Pilot</h4>
+              <p>WhatsApp prospective data protocol, 4-phase Gantt chart, and milestones.</p>
+            </div>
+          </div>
+          <div class="toc-item" onclick="goToSlide(11)">
+            <span class="toc-num">09</span>
+            <div class="toc-info">
+              <h4>Conclusion, Baselines & References</h4>
+              <p>Evaluation metrics (MAE/WAPE), cost ROI, academic papers, and FSSAI standards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Introduction -->
+    <section class="slide" id="slide-3" data-index="3" data-title="Introduction">
+      <div class="slide-content">
+        <div class="section-badge">02 • Problem Context</div>
+        <h2 class="slide-heading">Introduction & Campus Context</h2>
+        <p class="slide-desc">Bridging the operational gap between static mess cooking rules and fluctuating student dining turnout.</p>
+
+        <div class="two-col-grid">
+          <div class="col-card">
+            <div class="card-header">
+              <span class="card-icon">⚠️</span>
+              <h3>The Campus Food Wastage Reality</h3>
+            </div>
+            <ul class="bullet-list">
+              <li><strong>Informal Rule-of-Thumb Cooking:</strong> Mess kitchens prepare fixed batches based on gut feeling and total registered residents (~700–900 students).</li>
+              <li><strong>High Turnout Volatility:</strong> Actual attendance fluctuates heavily by 25%–50% due to exams, weekends, campus fests, weather, and menu popularity (e.g., Paneer vs. Lauki).</li>
+              <li><strong>Perishable Leftovers Discarded:</strong> Highly perishable cooked dishes cannot be safely stored across shifts and are thrown out, wasting significant budget and kitchen resources daily.</li>
+            </ul>
+          </div>
+
+          <div class="col-card highlight-card">
+            <div class="card-header">
+              <span class="card-icon">🎯</span>
+              <h3>Presentation & Project Objectives</h3>
+            </div>
+            <ul class="bullet-list">
+              <li><strong>Item-Level Decision Support:</strong> Recommend exact preparation quantities per menu item (in kg, liters, standard degh/vessels) rather than just total heads.</li>
+              <li><strong>Empirical Prospective Log:</strong> Build a real dataset with mess staff starting August 2026, recording daily plate counts, leftover quantities, and shortages.</li>
+              <li><strong>Practical Kitchen Constraints:</strong> Account for minimum cooking batch sizes, portion yields, and the asymmetric cost of food shortage vs. surplus.</li>
+              <li><strong>Validate with Real Operational Baselines:</strong> Compare against current manager estimates, 7-day moving averages, and same-weekday historical figures.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout-banner">
+          <span class="banner-tag">Key Insight from Mess Manager Interview</span>
+          <p>“We don't need a zero-waste illusion or a student voting app. We need simple, explainable daily batch recommendations so the head cook knows whether to prepare 45 kg or 65 kg before lighting the stove.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Project Scope & Deliverables -->
+    <section class="slide" id="slide-4" data-index="4" data-title="Project Scope">
+      <div class="slide-content">
+        <div class="section-badge">03 • Scope & Boundaries</div>
+        <h2 class="slide-heading">Project Scope & Deliverables</h2>
+        <p class="slide-desc">Clearly defining what Mestimator delivers for the 17-week semester, with strict operational boundaries.</p>
+
+        <div class="scope-comparison-grid">
+          <div class="scope-box scope-in">
+            <div class="scope-header">
+              <span class="scope-icon">✅</span>
+              <h3>In-Scope Core Deliverables</h3>
+            </div>
+            <ul class="scope-list">
+              <li><strong>Responsive Kitchen PWA:</strong> Mobile/tablet interface for mess managers to view recommendations, record overrides, and log leftover weights.</li>
+              <li><strong>Multi-Factor Forecasting Engine:</strong> Predicts meal turnout and dish-level demand using day-of-week, meal type, academic calendar flags, and historical dish ratios.</li>
+              <li><strong>Portion & Batch Recipe Optimizer:</strong> Translates predicted eaters into kitchen batch units (e.g., kg of Rice, Liters of Dal, trays, pieces).</li>
+              <li><strong>Uncertainty Risk Margin:</strong> Displays confidence bounds (e.g., 520 &plusmn; 40 diners) and guards against dining stockouts.</li>
+              <li><strong>Multi-Mess Configuration:</strong> Configurable dining schedules, menus, vessel sizes, and recipe yields for any hostel or canteen.</li>
+              <li><strong>Prospective Campus Dataset & Audit Trail:</strong> Continuous multi-week log of planned vs. actual food outcomes.</li>
+            </ul>
+          </div>
+
+          <div class="scope-box scope-out">
+            <div class="scope-header">
+              <span class="scope-icon">🚫</span>
+              <h3>Explicit Non-Goals (Out of Scope)</h3>
+            </div>
+            <ul class="scope-list">
+              <li><strong>NO Medicine or Multi-Commodity Sharing:</strong> Strictly removed from original MediMatch concept due to safety/regulatory limits.</li>
+              <li><strong>NO Open Student-to-Student Redistribution:</strong> Mess food cannot be redistributed informally without institutional FSSAI food safety clearance.</li>
+              <li><strong>NO Mandatory Student Voting Foundation:</strong> Student preferences are an optional auxiliary signal; system does not rely on student survey compliance.</li>
+              <li><strong>NO Automated Hardware Kitchen Control:</strong> Mestimator is a decision-support advisory system; kitchen staff always retain final override authority.</li>
+              <li><strong>NO Black-box LLM Wrapper Forecasting:</strong> Uses statistical & ML models (Holt-Winters, Gradient Boosted Trees); LLM is only used for plain-language summaries.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Proposed Functions & Workflow -->
+    <section class="slide" id="slide-5" data-index="5" data-title="Proposed Functions">
+      <div class="slide-content">
+        <div class="section-badge">04 • Operational Flow</div>
+        <h2 class="slide-heading">Proposed Functions & Kitchen Pipeline</h2>
+        <p class="slide-desc">The 6-stage continuous decision loop connecting pre-meal planning with post-meal outcome verification.</p>
+
+        <div class="workflow-steps-container">
+          <div class="wf-step">
+            <div class="wf-num">01</div>
+            <h4>Menu & Date Ingest</h4>
+            <p>Staff select scheduled meal (Breakfast, Lunch, Dinner) & daily menu items.</p>
+          </div>
+          <div class="wf-arrow">&rarr;</div>
+          
+          <div class="wf-step">
+            <div class="wf-num">02</div>
+            <h4>Turnout Estimation</h4>
+            <p>Engine estimates expected diners factoring calendar (exams, weekend, weather).</p>
+          </div>
+          <div class="wf-arrow">&rarr;</div>
+
+          <div class="wf-step">
+            <div class="wf-num">03</div>
+            <h4>Dish-Level Demand</h4>
+            <p>Splits attendance into dish popularity ratios (e.g. 70% Paneer vs. 30% Mixed Veg).</p>
+          </div>
+          <div class="wf-arrow">&rarr;</div>
+
+          <div class="wf-step">
+            <div class="wf-num">04</div>
+            <h4>Batch Conversion</h4>
+            <p>Converts portions into kitchen batch units & vessels (kg / L / trays) with safety buffer.</p>
+          </div>
+          <div class="wf-arrow">&rarr;</div>
+
+          <div class="wf-step">
+            <div class="wf-num">05</div>
+            <h4>Staff Review & Override</h4>
+            <p>Manager reviews suggested batch, adjusts if needed, and logs reason (1-click).</p>
+          </div>
+          <div class="wf-arrow">&rarr;</div>
+
+          <div class="wf-step">
+            <div class="wf-num">06</div>
+            <h4>Outcome Feedback</h4>
+            <p>Staff log actual plate count & leftover containers. System updates future weights.</p>
+          </div>
+        </div>
+
+        <div class="workflow-diagram-card">
+          <div class="diagram-title">System Data Flow & Feedback Loop</div>
+          <div class="flowchart-box">
+            <div class="flow-node highlight">Historical Mess Records + Academic Calendar + Optional Student Votes</div>
+            <div class="flow-connector">&darr;</div>
+            <div class="flow-node">Mestimator Core Forecasting Engine (Turnout & Dish-Level Demand)</div>
+            <div class="flow-connector">&darr;</div>
+            <div class="flow-node">Batch Recipe Optimizer (Yield Matrix & Asymmetric Shortage Guard)</div>
+            <div class="flow-connector">&darr;</div>
+            <div class="flow-node action">Hostel Mess Manager PWA Screen &rarr; [Accept] / [Override with Reason]</div>
+            <div class="flow-connector">&darr;</div>
+            <div class="flow-node">Meal Shift &rarr; Post-Service Measurement (Leftover kg, Stockouts, Actual Plates)</div>
+            <div class="flow-connector">&circlearrowright; Retrospective Error Calculation & Adaptive Model Retraining</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Target Users & Operating Context -->
+    <section class="slide" id="slide-6" data-index="6" data-title="Target Users">
+      <div class="slide-content">
+        <div class="section-badge">05 • Stakeholders</div>
+        <h2 class="slide-heading">Target Users & Operating Context</h2>
+        <p class="slide-desc">Designing for real kitchen constraints: fast-paced shifts, high temperature environments, and low digital friction.</p>
+
+        <div class="personas-grid">
+          <div class="persona-card">
+            <div class="persona-header">
+              <span class="persona-avatar">👨‍🍳</span>
+              <div>
+                <h4>Hostel Mess Manager</h4>
+                <span class="role-sub">Primary Daily User</span>
+              </div>
+            </div>
+            <div class="persona-body">
+              <p><strong>Responsibility:</strong> Final decision on raw material issue, portion control, batch sizes, and food wastage reporting.</p>
+              <p><strong>Key Need:</strong> Simple morning recommendation summary (5 min before prep), clear confidence range, fast override logging.</p>
+              <div class="tag-row">
+                <span class="ptag">Daily Planner</span>
+                <span class="ptag">Kitchen Supervisor</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="persona-card">
+            <div class="persona-header">
+              <span class="persona-avatar">🍳</span>
+              <div>
+                <h4>Head Cook / Kitchen Staff</h4>
+                <span class="role-sub">Execution & Measurement</span>
+              </div>
+            </div>
+            <div class="persona-body">
+              <p><strong>Responsibility:</strong> Cooking food in fixed kettle/degh capacities; recording leftover containers after dining service closes.</p>
+              <p><strong>Key Need:</strong> Clear conversion to physical cooking units (e.g. "Prepare 3 full deghs of Rajma"), high-contrast screen readable in hot kitchen.</p>
+              <div class="tag-row">
+                <span class="ptag">High Contrast UI</span>
+                <span class="ptag">Standard Vessels</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="persona-card">
+            <div class="persona-header">
+              <span class="persona-avatar">📋</span>
+              <div>
+                <h4>Hostel Warden / Hall Committee</h4>
+                <span class="role-sub">Monitoring & Auditing</span>
+              </div>
+            </div>
+            <div class="persona-body">
+              <p><strong>Responsibility:</strong> Oversight on student food quality, mess budget utilization, sustainability, and stockout prevention.</p>
+              <p><strong>Key Need:</strong> Weekly analytics dashboard showing trend of food waste reduction (kg/week), cost saved (₹), and zero shortage incidents.</p>
+              <div class="tag-row">
+                <span class="ptag">Weekly Audit</span>
+                <span class="ptag">Cost & Waste ROI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ux-principles-grid">
+          <div class="ux-pill"><strong>Zero Training Needed:</strong> 2-click operation to view and confirm batch advice.</div>
+          <div class="ux-pill"><strong>Physical Units First:</strong> Shows kg, Liters, and standard vessel counts (not abstract % scores).</div>
+          <div class="ux-pill"><strong>Offline Resilience:</strong> Works seamlessly during campus Wi-Fi drops with local offline sync.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: System Features & Decision Engine -->
+    <section class="slide" id="slide-7" data-index="7" data-title="System Features">
+      <div class="slide-content">
+        <div class="section-badge">06 • Architecture</div>
+        <h2 class="slide-heading">System Features & Decision Engine</h2>
+        <p class="slide-desc">A multi-stage mathematical decision model translating uncertain turnout into practical kitchen batches.</p>
+
+        <div class="engine-grid">
+          <div class="engine-col">
+            <div class="feature-box">
+              <h4>1. Turnout Forecasting Model</h4>
+              <p>Estimates total plate count $\hat{A}_m$ for meal $m$ based on feature vector:</p>
+              <div class="formula-chip">Features: [Weekday, MealType, ExamFlag, HolidayFlag, Rain/Weather, PrevWeekAttendance]</div>
+              <p class="sub-detail">Compares Gradient Boosted Trees (XGBoost) vs. 7-Day Seasonal Moving Average.</p>
+            </div>
+
+            <div class="feature-box">
+              <h4>2. Dish-Level Preference Matrix</h4>
+              <p>Distributes predicted diners into individual dish demand $\hat{D}_{m,i}$ using historical dish substitution weights:</p>
+              <div class="formula-chip">Demand $\hat{D}_{m,i} = \hat{A}_m \times \omega_{i} \times \alpha_{\text{preference}}$</div>
+            </div>
+          </div>
+
+          <div class="engine-col">
+            <div class="feature-box highlight-box">
+              <h4>3. Recipe Yield & Batch Quantization</h4>
+              <p>Converts diner demand into physical cooking batches under discrete vessel constraints:</p>
+              <div class="formula-chip">Quantity $Q_i = \text{BatchRound}\left( \hat{D}_{m,i} \times \text{PortionSize}_i + \text{SafetyBuffer}_i \right)$</div>
+              <p class="sub-detail">Ensures food is cooked in realistic batch increments (e.g. 5kg dal pots or 20L kettles).</p>
+            </div>
+
+            <div class="feature-box">
+              <h4>4. Asymmetric Risk Matrix</h4>
+              <p>Food shortages are operationally worse than minor surplus. The loss function assigns a higher penalty to under-preparation:</p>
+              <div class="formula-chip">Penalty: $L(Q) = c_{\text{waste}} \cdot \max(0, Q - D) + 3.5 \cdot c_{\text{shortage}} \cdot \max(0, D - Q)$</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="config-banner">
+          <span class="config-title">Multi-Mess SaaS Configuration:</span>
+          <span>Configurable per hostel mess for dining schedules (Breakfast/Lunch/Dinner/Snacks), custom weekly menus, standardized container capacities, and dish portion benchmarks.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Interfaces & Decision Dashboard Demo -->
+    <section class="slide" id="slide-8" data-index="8" data-title="Interfaces & Demo">
+      <div class="slide-content">
+        <div class="section-badge">07 • UI & Live Sandbox</div>
+        <h2 class="slide-heading">Interfaces & Interactive Decision Sandbox</h2>
+        <p class="slide-desc">High-contrast staff dashboard and an interactive simulation of the Mestimator preparation engine.</p>
+
+        <div class="sandbox-container">
+          <div class="sandbox-controls">
+            <div class="sandbox-header">
+              <span class="ctrl-title">Interactive Kitchen Recommender Demo</span>
+              <span class="badge-live">Live Model Sandbox</span>
+            </div>
+            
+            <div class="control-row">
+              <label>Hostel Residents: <strong id="lblCapacity">800</strong></label>
+              <input type="range" id="rngCapacity" min="400" max="1200" step="50" value="800" oninput="updateKitchenDemo()">
+            </div>
+
+            <div class="control-row">
+              <label>Meal & Day Type:</label>
+              <select id="selMealContext" onchange="updateKitchenDemo()">
+                <option value="weekday_lunch">Weekday Lunch (Normal Academic Day)</option>
+                <option value="weekend_dinner" selected>Weekend Dinner (High Outing Rate)</option>
+                <option value="exam_dinner">Exam Week Dinner (High Mess Turnout)</option>
+                <option value="fest_lunch">Campus Fest Day (Irregular Turnout)</option>
+              </select>
+            </div>
+
+            <div class="control-row">
+              <label>Main Entree Selection:</label>
+              <select id="selMenuDish" onchange="updateKitchenDemo()">
+                <option value="paneer" selected>Shahi Paneer + Dal Makhani (Popular Dish)</option>
+                <option value="mixveg">Mixed Vegetable + Arhar Dal (Moderate Demand)</option>
+                <option value="lauki">Lauki Kofta + Yellow Dal (Lower Demand)</option>
+              </select>
+            </div>
+
+            <div class="stat-summary-row">
+              <div class="stat-box">
+                <span class="stat-lbl">Estimated Diners</span>
+                <span class="stat-val" id="dispEstDiners">560 &plusmn; 35</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-lbl">Manager Rule (Status Quo)</span>
+                <span class="stat-val text-strike" id="dispOldPrep">720 portions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sandbox-output">
+            <div class="output-header">
+              <h4>Mestimator Kitchen Batch Recommendation</h4>
+              <span class="status-chip ok">Safety Buffer: +6.5%</span>
+            </div>
+
+            <div class="prep-items-list" id="prepList">
+              <!-- Dynamically populated by app.js -->
+            </div>
+
+            <div class="savings-callout">
+              <span class="save-icon">🌿</span>
+              <div>
+                <strong>Estimated Waste Prevented This Meal:</strong>
+                <span id="dispSavedKg">~18.5 kg food (₹1,480 saved)</span> with zero shortage risk.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="interface-meta-bar">
+          <span><strong>Hardware Interfaces:</strong> Standard kitchen Android/iOS tablets & smartphones.</span>
+          <span><strong>Offline Resilience:</strong> IndexedDB local storage with background sync on Wi-Fi reconnection.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Performance, Security & Quality Goals -->
+    <section class="slide" id="slide-9" data-index="9" data-title="Quality & Security">
+      <div class="slide-content">
+        <div class="section-badge">08 • Non-Functional Requirements</div>
+        <h2 class="slide-heading">Performance, Security & Quality Attributes</h2>
+        <p class="slide-desc">Engineered for rock-solid reliability, swift responsiveness in the kitchen, and zero privacy compromise.</p>
+
+        <div class="three-col-cards">
+          <div class="quality-card">
+            <div class="q-icon">⚡</div>
+            <h3>Performance Goals</h3>
+            <ul class="q-list">
+              <li><strong>Recommendation Latency:</strong> &lt; 400 ms on mobile devices for batch calculations.</li>
+              <li><strong>Offline Availability:</strong> 100% core calculation functions operate even if campus internet drops during kitchen hours.</li>
+              <li><strong>Data Sync Window:</strong> Background sync completes within 3 seconds of network recovery.</li>
+              <li><strong>Uptime Target:</strong> 99.9% availability during active preparation hours (6:00 AM – 9:00 PM).</li>
+            </ul>
+          </div>
+
+          <div class="quality-card">
+            <div class="q-icon">🔒</div>
+            <h3>Security & Privacy Measures</h3>
+            <ul class="q-list">
+              <li><strong>Zero Student PII Collection:</strong> System strictly processes aggregate plate counts and food weights; no student biometric or ID data stored.</li>
+              <li><strong>Role-Based Access Control (RBAC):</strong>
+                <ul>
+                  <li><em>Mess Manager:</em> Full edit & override permissions.</li>
+                  <li><em>Kitchen Staff:</em> View-only recipe quantities & log leftover counts.</li>
+                  <li><em>Warden:</em> Read-only analytics reports.</li>
+                </ul>
+              </li>
+              <li><strong>Audit Logging:</strong> Immutable record for every manual recommendation override with mandatory reason code.</li>
+            </ul>
+          </div>
+
+          <div class="quality-card">
+            <div class="q-icon">🛡️</div>
+            <h3>Software Quality Attributes</h3>
+            <ul class="q-list">
+              <li><strong>High Usability:</strong> Large tap targets (min 48px) and high-contrast color scheme for kitchen environments.</li>
+              <li><strong>Fault Tolerance:</strong> If forecasting engine fails or has missing inputs, system automatically falls back to safe 14-day median rolling average.</li>
+              <li><strong>Maintainability:</strong> Modular decoupled architecture (Forecasting Engine separated from UI & Database Layer).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Initial Planning, Feasibility & 17-Week Pilot -->
+    <section class="slide" id="slide-10" data-index="10" data-title="Planning & Pilot">
+      <div class="slide-content">
+        <div class="section-badge">09 • Execution Plan</div>
+        <h2 class="slide-heading">Initial Planning & 17-Week Live Pilot</h2>
+        <p class="slide-desc">Phased roadmap with an active prospective data collection protocol agreed with the hostel mess manager.</p>
+
+        <div class="gantt-container">
+          <div class="gantt-header">
+            <span class="gantt-title">17-Week Semester Project Milestones</span>
+            <span class="gantt-badge">Aug 2026 – Dec 2026</span>
+          </div>
+
+          <div class="gantt-track">
+            <div class="gantt-phase phase-1" style="width: 24%;">
+              <span class="p-tag">Weeks 1–4</span>
+              <h4>Phase 1: Baseline Logging</h4>
+              <p>Prospective WhatsApp collection, status quo data & vessel standardization.</p>
+            </div>
+            <div class="gantt-phase phase-2" style="width: 24%;">
+              <span class="p-tag">Weeks 5–8</span>
+              <h4>Phase 2: Model & PWA Dev</h4>
+              <p>Forecasting algorithms, offline PWA, recipe quantization & safety bounds.</p>
+            </div>
+            <div class="gantt-phase phase-3" style="width: 32%;">
+              <span class="p-tag">Weeks 9–14</span>
+              <h4>Phase 3: Live Supervised Pilot</h4>
+              <p>Daily live recommendations with mess manager review & override tracking.</p>
+            </div>
+            <div class="gantt-phase phase-4" style="width: 20%;">
+              <span class="p-tag">Weeks 15–17</span>
+              <h4>Phase 4: Evaluation</h4>
+              <p>Longitudinal comparison vs. baseline, waste/cost audit, and final defense.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col-grid" style="margin-top: 1rem;">
+          <div class="feasibility-card">
+            <h4>📋 Prospective Daily Data Protocol (Started 10 Aug 2026)</h4>
+            <div class="data-fields-grid">
+              <span class="df-tag">Date & Meal Type</span>
+              <span class="df-tag">Full Menu Items</span>
+              <span class="df-tag">Registered Residents</span>
+              <span class="df-tag">Manager Prior Estimate</span>
+              <span class="df-tag">Actual Observed Plates</span>
+              <span class="df-tag">Quantity Prepared (kg/L/tray)</span>
+              <span class="df-tag">Leftover Measured (kg/L)</span>
+              <span class="df-tag">Shortage Incidents & Time</span>
+              <span class="df-tag">Weather/Exam Disruptions</span>
+              <span class="df-tag">Staff Override & Reason</span>
+            </div>
+          </div>
+
+          <div class="feasibility-card highlight-card">
+            <h4>✅ Operational Feasibility Confirmation</h4>
+            <ul class="bullet-list-sm">
+              <li><strong>Stakeholder Agreement:</strong> Hostel Mess Manager confirmed daily WhatsApp outcome log transfer after dinner service.</li>
+              <li><strong>Standardized Containers:</strong> 4 standard kitchen vessel capacities mapped (Degh-Large: 35 kg, Degh-Medium: 20 kg, Gravy Tub: 15 L, Tray: 60 pcs).</li>
+              <li><strong>Low Overhead:</strong> Takes &lt; 2 minutes for mess staff to verify batch numbers and log leftover containers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Conclusion, Evaluation & References -->
+    <section class="slide" id="slide-11" data-index="11" data-title="Conclusion & References">
+      <div class="slide-content">
+        <div class="section-badge">10 • Evaluation & Summary</div>
+        <h2 class="slide-heading">Conclusion, Evaluation Metrics & References</h2>
+        <p class="slide-desc">How Mestimator will be quantitatively defended and the academic foundation backing our system.</p>
+
+        <div class="eval-grid">
+          <div class="eval-card">
+            <div class="eval-title">🎯 Baseline Comparison Framework</div>
+            <table class="eval-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Description</th>
+                  <th>Target Metric</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Baseline 0</strong></td>
+                  <td>Mess Manager Status-Quo Estimate</td>
+                  <td>Historical Benchmark</td>
+                </tr>
+                <tr>
+                  <td><strong>Baseline 1</strong></td>
+                  <td>Same Day Previous Week</td>
+                  <td>Seasonal Reference</td>
+                </tr>
+                <tr>
+                  <td><strong>Baseline 2</strong></td>
+                  <td>7-Day Rolling Moving Average (SMA)</td>
+                  <td>Trend Smoothing</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td><strong>Mestimator (Ours)</strong></td>
+                  <td>Feature-Aware Demand Engine + Batch Optimizer</td>
+                  <td><strong>&gt;25% Waste Reduction & Zero Stockouts</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="eval-card">
+            <div class="eval-title">📊 Key Operational Success Metrics</div>
+            <ul class="metric-list">
+              <li><strong>Forecast Accuracy:</strong> Weighted Absolute Percentage Error (WAPE) and Mean Absolute Error (MAE) for attendance & dish demand.</li>
+              <li><strong>Wastage Reduction:</strong> Total kg of surplus food per 100 diners (target: reduce from ~12 kg to &lt; 4 kg per 100 diners).</li>
+              <li><strong>Service Reliability:</strong> 0% unmanaged stockout events during meal service.</li>
+              <li><strong>Staff Trust:</strong> Recommendation acceptance rate &gt; 80% with low override divergence.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="references-box">
+          <div class="ref-title">Key Academic & Regulatory References</div>
+          <div class="ref-links">
+            <a href="https://www.mdpi.com/2071-1050/17/2/379" target="_blank" rel="noreferrer" class="ref-item">
+              <span>📄 MDPI Sustainability (2025): <em>Forecasting Meal Demand in University Dining Facilities</em> [17(2), 379]</span>
+            </a>
+            <a href="https://fssai.gov.in/upload/knowledge_hub/7702660a6012297118Orange_Book_2nd_Edition_20_05_2021.pdf" target="_blank" rel="noreferrer" class="ref-item">
+              <span>📜 FSSAI Orange Book for Campuses: <em>Guidelines on Food Safety, Hygiene & Surplus Food Management</em></span>
+            </a>
+            <a href="https://fssai.gov.in/cms/food-safety-and-standards-regulations.php" target="_blank" rel="noreferrer" class="ref-item">
+              <span>⚖️ Food Safety and Standards (Recovery and Distribution of Surplus Food) Regulations, FSSAI</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="conclusion-cta">
+          <div class="cta-text">
+            <strong>Ready for Supervised Pilot:</strong> Dataset logging active since 10 Aug 2026. Codebase repository configured with zero-PII security and hosted PWA architecture.
+          </div>
+          <div class="viva-badge">Open for Questions & Professor Review</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Interactive Slide Controls Bar -->
+  <footer class="deck-footer">
+    <div class="footer-left">
+      <button class="ctrl-btn" id="btnPrev" title="Previous Slide (Key: ← / Up / PageUp)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Previous</span>
+      </button>
+      <button class="ctrl-btn" id="btnNext" title="Next Slide (Key: → / Down / Space / PageDown)">
+        <span>Next</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="footer-center">
+      <!-- Quick Slide Jump Dots -->
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
+
+    <div class="footer-right">
+      <span class="keyboard-tip"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate | <kbd>N</kbd> Notes | <kbd>O</kbd> Grid | <kbd>F</kbd> Full</span>
+    </div>
+  </footer>
+
+  <!-- Slide Overview Modal / Grid -->
+  <div class="modal-overlay" id="overviewModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Presentation Slides Overview</h3>
+        <button class="modal-close" id="btnCloseOverview">&times;</button>
+      </div>
+      <div class="slide-thumbnails-grid" id="thumbnailsGrid">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Presenter Notes Drawer -->
+  <aside class="notes-drawer" id="notesDrawer">
+    <div class="notes-header">
+      <div class="notes-badge">🎙️ Student Speaking Notes & Viva Defense</div>
+      <button class="notes-close" id="btnCloseNotes">&times;</button>
+    </div>
+    <div class="notes-body" id="notesContent">
+      <!-- Injected per active slide via app.js -->
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
