@@ -1,14 +1,9 @@
-// ===================================================================
-// Mestimator Presentation Deck Logic & Kitchen Recommender Sandbox
-// Clean, modular, zero-bloat vanilla JavaScript
-// ===================================================================
+// Presentation deck controls and kitchen recommender sandbox
 
 const TOTAL_SLIDES = 11;
 let currentSlideIndex = 1;
 
-// -------------------------------------------------------------------
-// Slide Navigation & State Management
-// -------------------------------------------------------------------
+// Slide navigation and state management
 function initPresentation() {
   buildThumbnails();
   buildSlideDots();
@@ -41,7 +36,7 @@ function goToSlide(index) {
     currentSlideIndex = index;
   }
   
-  // Update header indicator & progress
+  // Update header indicator and progress
   document.getElementById('slideIndicator').textContent = `Slide ${currentSlideIndex} of ${TOTAL_SLIDES}`;
   const progressPct = ((currentSlideIndex) / TOTAL_SLIDES) * 100;
   document.getElementById('progressFill').style.width = `${progressPct}%`;
@@ -50,7 +45,7 @@ function goToSlide(index) {
   document.getElementById('btnPrev').disabled = (currentSlideIndex === 1);
   document.getElementById('btnNext').disabled = (currentSlideIndex === TOTAL_SLIDES);
   
-  // Update dots & thumbnail active state
+  // Update dots and thumbnail active state
   updateDotsState();
   updateThumbnailsState();
   
@@ -70,9 +65,7 @@ function prevSlide() {
   }
 }
 
-// -------------------------------------------------------------------
-// Dots & Thumbnails UI Generators
-// -------------------------------------------------------------------
+// Dots and thumbnails UI generators
 function buildSlideDots() {
   const container = document.getElementById('slideDots');
   container.innerHTML = '';
@@ -152,9 +145,7 @@ function toggleFullscreen() {
   }
 }
 
-// -------------------------------------------------------------------
-// Event Listeners & Shortcuts
-// -------------------------------------------------------------------
+// Event listeners and keyboard shortcuts
 function setupEventListeners() {
   // Navigation buttons
   document.getElementById('btnNext').addEventListener('click', nextSlide);
@@ -174,7 +165,6 @@ function setupEventListeners() {
 
   // Global Keyboard Shortcuts
   document.addEventListener('keydown', (e) => {
-    // If typing in an input, don't hijack keys
     if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
       return;
     }
@@ -238,9 +228,7 @@ function setupEventListeners() {
   }
 }
 
-// -------------------------------------------------------------------
-// Interactive Kitchen Recommender Sandbox (Slide 8)
-// -------------------------------------------------------------------
+// Kitchen batch recommendation logic for slide 8
 function updateKitchenDemo() {
   const capacity = parseInt(document.getElementById('rngCapacity').value, 10);
   document.getElementById('lblCapacity').textContent = capacity;
@@ -248,8 +236,8 @@ function updateKitchenDemo() {
   const mealContext = document.getElementById('selMealContext').value;
   const menuDish = document.getElementById('selMenuDish').value;
 
-  // Turnout multiplier based on meal/day context
-  let turnoutMultiplier = 0.85; // default
+  // Turnout multiplier based on meal and day context
+  let turnoutMultiplier = 0.85;
   if (mealContext === 'weekday_lunch') {
     turnoutMultiplier = 0.78;
   } else if (mealContext === 'weekend_dinner') {
@@ -265,11 +253,11 @@ function updateKitchenDemo() {
   const confidenceMargin = Math.round(estDiners * 0.06);
   document.getElementById('dispEstDiners').textContent = `${estDiners} ± ${confidenceMargin}`;
 
-  // Old Status-Quo rule-of-thumb: Cook for 90% of total residents fixed
+  // Status Quo comparison
   const oldPrepPortions = Math.round(capacity * 0.90);
   document.getElementById('dispOldPrep').textContent = `${oldPrepPortions} portions`;
 
-  // Safety buffer (+6.5% to guard against shortages)
+  // Safety buffer to guard against shortages
   const targetPortions = Math.round(estDiners * 1.065);
 
   // Dish breakdown based on selection
@@ -303,14 +291,12 @@ function updateKitchenDemo() {
     
     if (item.unit === 'pcs') {
       reqQty = Math.round(targetPortions * item.portionKg * item.split);
-      // round to batch of 25
       reqQty = Math.ceil(reqQty / 25) * 25;
       vesselText = `${Math.ceil(reqQty / item.vesselCap)} Hot Cases`;
-      totalMestimatorKg += (reqQty * 0.035); // 35g per roti
+      totalMestimatorKg += (reqQty * 0.035);
       totalOldKg += (oldPrepPortions * item.portionKg * item.split * 0.035);
     } else {
       reqQty = (targetPortions * item.portionKg * item.split);
-      // round up to nearest 2.5 kg / L
       reqQty = Math.ceil(reqQty / 2.5) * 2.5;
       const deghs = (reqQty / item.vesselCap).toFixed(1);
       vesselText = `${reqQty} ${item.unit} (${deghs} standard deghs)`;
@@ -334,7 +320,7 @@ function updateKitchenDemo() {
 
   // Calculate waste prevented
   const savedKg = Math.max(0, Math.round(totalOldKg - totalMestimatorKg));
-  const savedInr = Math.round(savedKg * 80); // approx ₹80/kg cooked mess food cost
+  const savedInr = Math.round(savedKg * 80);
   document.getElementById('dispSavedKg').textContent = `~${savedKg} kg cooked food (₹${savedInr.toLocaleString('en-IN')} saved)`;
 }
 
