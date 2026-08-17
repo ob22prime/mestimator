@@ -299,6 +299,58 @@ body {
   margin-bottom: 28px;
 }
 
+/* Icon Bubbles & Badges */
+.icon-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  background: var(--bg-card-alt);
+  color: var(--brand-forest);
+}
+
+.icon-bubble.sage {
+  background: var(--brand-sage-light);
+  color: var(--brand-sage);
+}
+
+.icon-bubble.amber {
+  background: var(--accent-amber-light);
+  color: var(--accent-terracotta);
+}
+
+.icon-bubble.forest {
+  background: #E4ECE8;
+  color: var(--brand-forest);
+}
+
+.icon-bubble.red {
+  background: #FDF0ED;
+  color: var(--accent-red);
+}
+
+.icon-bubble.blue {
+  background: #E8F0F8;
+  color: #1D4E89;
+}
+
+.meta-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.feat-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
 .meta-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-light);
@@ -315,7 +367,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
-  margin-bottom: 4px;
 }
 
 .meta-val {
