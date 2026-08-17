@@ -132,9 +132,9 @@
               <h3>What Our Project Does</h3>
             </div>
             <ul class="bullet-list">
-              <li><strong>Predicts how many students will eat</strong> based on day, weather, exams, and which dish is on the menu.</li>
+              <li><strong>Predicts how many students will eat</strong> based on day, exams, and which dish is on the menu.</li>
               <li><strong>Tells the cook exact amounts</strong> like "Make 70 kg Paneer, 90 L Dal, 1400 Rotis" instead of guessing.</li>
-              <li><strong>Adds a small safety buffer</strong> so food never runs out, but waste is cut by 25% or more.</li>
+              <li><strong>Adds a small safety buffer</strong> so food never runs out and waste is reduced significantly.</li>
               <li><strong>We are collecting real data</strong> from the hostel mess since August 2026 to test this.</li>
             </ul>
           </div>
@@ -151,39 +151,24 @@
     <section class="slide" id="slide-3" data-index="3" data-title="Scope">
       <div class="slide-content">
         <div class="section-badge">02 &bull; Scope</div>
-        <h2 class="slide-heading">What We Will Build (and What We Won't)</h2>
-        <p class="slide-desc">Clear boundaries of our semester project.</p>
+        <h2 class="slide-heading">What We Will Build</h2>
+        <p class="slide-desc">What our project delivers this semester.</p>
 
-        <div class="scope-comparison-grid">
+        <div class="scope-comparison-grid" style="grid-template-columns: 1fr;">
           <div class="scope-box scope-in">
             <div class="scope-header">
               <span class="icon-bubble sage">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
               </span>
-              <h3>We Will Build</h3>
+              <h3>Project Deliverables</h3>
             </div>
             <ul class="scope-list">
               <li><strong>A simple web app</strong> that works on any phone or tablet in the kitchen.</li>
-              <li><strong>A prediction system</strong> that guesses how many students will eat each meal.</li>
-              <li><strong>Cooking quantity calculator</strong> that converts student count into kg, liters, and number of pots.</li>
+              <li><strong>A prediction system</strong> that guesses how many students will eat each meal using past data, day of week, exams, and dish popularity.</li>
+              <li><strong>Cooking quantity calculator</strong> that converts student count into kg, liters, and number of pots to cook.</li>
               <li><strong>Safety margin</strong> so food never runs out (e.g. "560 students expected, give or take 35").</li>
-              <li><strong>Works for any hostel</strong> by changing the menu, pot sizes, and timings.</li>
-            </ul>
-          </div>
-
-          <div class="scope-box scope-out">
-            <div class="scope-header">
-              <span class="icon-bubble red">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-              </span>
-              <h3>We Will NOT Build</h3>
-            </div>
-            <ul class="scope-list">
-              <li><strong>No medicine sharing:</strong> Removed from original idea due to health and drug rules.</li>
-              <li><strong>No giving food to outsiders:</strong> Mess food stays inside the hostel per food safety (FSSAI) rules.</li>
-              <li><strong>No student voting needed:</strong> The system works using past data, not by asking students to vote.</li>
-              <li><strong>No robot cooking:</strong> The app only suggests, the cook always makes the final call.</li>
-              <li><strong>No ChatGPT wrapper:</strong> We use proper prediction methods, not a language model.</li>
+              <li><strong>Works for any hostel</strong> by changing the menu, pot sizes, and meal timings.</li>
+              <li><strong>Works offline</strong> so the kitchen can use it even when Wi-Fi is down.</li>
             </ul>
           </div>
         </div>
@@ -208,7 +193,7 @@
           <div class="wf-step">
             <div class="wf-num">02</div>
             <h4>Predict Student Count</h4>
-            <p>System checks the day, weather, and exams to guess how many will eat.</p>
+            <p>System checks the day and exams to guess how many will eat.</p>
           </div>
           <div class="wf-arrow">&rarr;</div>
 
@@ -243,7 +228,7 @@
         <div class="workflow-diagram-card">
           <div class="diagram-title">Simple Data Flow</div>
           <div class="flowchart-box">
-            <div class="flow-node highlight">Past Mess Records + Academic Calendar + Weather</div>
+            <div class="flow-node highlight">Past Mess Records + Academic Calendar + Dish Popularity</div>
             <div class="flow-connector">&darr;</div>
             <div class="flow-node">Mestimator Prediction (How many will eat + Which dish is popular)</div>
             <div class="flow-connector">&darr;</div>
@@ -350,8 +335,8 @@
                 </span>
                 <h4>Step 1: Guess How Many Will Eat</h4>
               </div>
-              <p>Looks at what day it is, if there are exams, weather, and last week's numbers to predict attendance.</p>
-              <div class="formula-chip">Inputs: Day of Week, Meal Time, Exams, Weather, Last Week's Attendance</div>
+              <p>Looks at what day it is, if there are exams, and last week's numbers to predict attendance.</p>
+              <div class="formula-chip">Inputs: Day of Week, Meal Time, Exams, Last Week's Attendance</div>
             </div>
 
             <div class="feature-box">
@@ -375,7 +360,7 @@
                 <h4>Step 3: Convert to Cooking Amounts</h4>
               </div>
               <p>Turns the student count into actual kitchen numbers the cook understands.</p>
-              <div class="formula-chip">Example: 560 students eating Paneer = 70 kg = 2 big pots (deghs)</div>
+              <div class="formula-chip">Example: 560 students eating Paneer = 70 kg = 2 big pots</div>
               <p class="sub-detail">Rounds up to real pot sizes used in the kitchen (35 kg pots, 20 kg pots, etc).</p>
             </div>
 
@@ -555,7 +540,7 @@
             <div class="gantt-phase phase-1" style="width: 24%;">
               <span class="p-tag">Weeks 1 to 4</span>
               <h4>Phase 1: Collect Data</h4>
-              <p>Record daily plate counts, leftovers, and menu from the mess via WhatsApp.</p>
+              <p>Record daily plate counts, leftovers, and menu from the mess staff.</p>
             </div>
             <div class="gantt-phase phase-2" style="width: 24%;">
               <span class="p-tag">Weeks 5 to 8</span>
@@ -587,7 +572,7 @@
               <span class="df-tag">Food Prepared (kg)</span>
               <span class="df-tag">Leftover Food (kg)</span>
               <span class="df-tag">Did Food Run Out?</span>
-              <span class="df-tag">Exams or Rain?</span>
+              <span class="df-tag">Exam Week?</span>
               <span class="df-tag">Any Manual Changes</span>
             </div>
           </div>
@@ -595,8 +580,8 @@
           <div class="feasibility-card highlight-card">
             <h4>Why This Is Doable</h4>
             <ul class="bullet-list-sm">
-              <li><strong>Mess Manager agreed:</strong> He sends us daily leftover counts on WhatsApp after dinner.</li>
-              <li><strong>We know the pot sizes:</strong> Big pot = 35 kg, Medium pot = 20 kg, Gravy tub = 15 L, Roti tray = 60 pieces.</li>
+              <li><strong>Mess Manager agreed:</strong> He shares daily leftover counts with us after dinner.</li>
+              <li><strong>We know the pot sizes:</strong> Big pot = 35 kg, Medium pot = 20 kg, Gravy pot = 15 L, Roti tray = 60 pieces.</li>
               <li><strong>Quick and Easy:</strong> Takes the cook less than 2 minutes a day to check the app and log leftovers.</li>
             </ul>
           </div>
@@ -631,7 +616,7 @@
                 <tr>
                   <td><strong>Last Week Same Day</strong></td>
                   <td>Cook same as last Monday for this Monday</td>
-                  <td>Better, but ignores exams/weather</td>
+                  <td>Better, but ignores exams and dish changes</td>
                 </tr>
                 <tr>
                   <td><strong>7-Day Average</strong></td>
@@ -640,8 +625,8 @@
                 </tr>
                 <tr class="highlight-row">
                   <td><strong>Mestimator (Ours)</strong></td>
-                  <td>Uses day, weather, exams, dish popularity</td>
-                  <td><strong>25%+ less waste, zero shortages</strong></td>
+                  <td>Uses day, exams, and dish popularity together</td>
+                  <td><strong>Less waste, no one goes hungry</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -651,7 +636,7 @@
             <div class="eval-title">How We Measure Success</div>
             <ul class="metric-list">
               <li><strong>Prediction Accuracy:</strong> How close our guess is to the actual number of students who ate.</li>
-              <li><strong>Waste Reduction:</strong> How many kg of food we saved compared to the old method (target: 25% less waste).</li>
+              <li><strong>Waste Reduction:</strong> How many kg of food we saved compared to the old method.</li>
               <li><strong>No Shortages:</strong> Students should never go hungry because we undercooked.</li>
               <li><strong>Cook Trusts It:</strong> The mess manager follows our suggestion at least 80% of the time.</li>
             </ul>
@@ -675,7 +660,7 @@
 
         <div class="conclusion-cta">
           <div class="cta-text">
-            <strong>Ready to Test in Real Kitchen:</strong> We have been collecting daily data from the hostel mess since 10 Aug 2026. Ready for live testing.
+            <strong>Data Collection Started:</strong> We have been collecting daily meal data from the hostel mess since 10 Aug 2026.
           </div>
           <div class="viva-badge">Open for Questions &amp; Review</div>
         </div>

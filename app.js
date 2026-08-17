@@ -298,8 +298,8 @@ function updateKitchenDemo() {
     } else {
       reqQty = (targetPortions * item.portionKg * item.split);
       reqQty = Math.ceil(reqQty / 2.5) * 2.5;
-      const deghs = (reqQty / item.vesselCap).toFixed(1);
-      vesselText = `${reqQty} ${item.unit} (${deghs} standard deghs)`;
+      const pots = (reqQty / item.vesselCap).toFixed(1);
+      vesselText = `${reqQty} ${item.unit} (${pots} pots)`;
       totalMestimatorKg += reqQty;
       totalOldKg += (oldPrepPortions * item.portionKg * item.split);
     }
