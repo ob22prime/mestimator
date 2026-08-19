@@ -242,26 +242,24 @@ function updateKitchenDemo() {
   const expectedDiners = Math.round(capacity * multiplier);
   document.getElementById('dispEstDiners').textContent = `~${expectedDiners} Students`;
 
-  // Determine simple pot advice based on menu and diners
-  let curryPots = Math.max(1, Math.round(expectedDiners / 280));
-  let dalPots = Math.max(1, Math.round(expectedDiners / 250));
-  let ricePots = Math.max(1, Math.round(expectedDiners / 350));
-  let rotiTrays = Math.max(2, Math.round(expectedDiners / 70));
+  // Simple kg, L, and Tray measurements
+  let gravyKg = Math.round(expectedDiners * 0.08);
+  let dalLiters = Math.round(expectedDiners * 0.09);
+  let chapatiTrays = Math.max(2, Math.round(expectedDiners / 65));
 
-  let curryName = "Special Paneer";
+  let gravyName = "Paneer Gravy";
   let dalName = "Dal Makhani";
 
   if (menuDish === 'regular') {
-    curryName = "Mixed Vegetable";
+    gravyName = "Mixed Veg Gravy";
     dalName = "Yellow Dal";
-    curryPots = Math.max(1, Math.round(expectedDiners / 320));
+    gravyKg = Math.round(expectedDiners * 0.07);
   }
 
   const items = [
-    { name: curryName, count: `${curryPots} Big Pots` },
-    { name: dalName, count: `${dalPots} Medium Pots` },
-    { name: "Steamed Rice", count: `${ricePots} Big Pot` },
-    { name: "Fresh Chapatis", count: `${rotiTrays} Trays` }
+    { name: gravyName, count: `~${gravyKg} kg` },
+    { name: dalName, count: `~${dalLiters} Liters` },
+    { name: "Fresh Chapatis", count: `~${chapatiTrays} Trays` }
   ];
 
   const listEl = document.getElementById('prepList');
@@ -272,10 +270,10 @@ function updateKitchenDemo() {
       row.className = 'prep-item-row';
       row.innerHTML = `
         <div>
-          <span class="item-name">${item.name}</span>
+          <span class="item-name" style="font-size: 0.95rem;">${item.name}</span>
         </div>
         <div class="item-batch-info">
-          <div class="item-qty" style="font-size: 0.9rem;">${item.count}</div>
+          <div class="item-qty" style="font-size: 1.05rem; font-weight: 700; color: var(--brand-forest);">${item.count}</div>
         </div>
       `;
       listEl.appendChild(row);

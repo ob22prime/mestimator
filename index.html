@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=8.0">
+  <link rel="stylesheet" href="style.css?v=9.0">
 </head>
 <body>
 
@@ -315,7 +315,7 @@
       <div class="slide-content">
         <div class="section-badge">05 &bull; Core Logic</div>
         <h2 class="slide-heading">How the Prediction Works</h2>
-        <p class="slide-desc">4 simple steps to convert uncertain attendance into exact kitchen cooking pots.</p>
+        <p class="slide-desc">4 simple steps to calculate how much food to prepare each meal.</p>
 
         <div class="engine-grid">
           <div class="engine-col">
@@ -324,10 +324,9 @@
                 <span class="icon-bubble forest">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
                 </span>
-                <h4>Step 1: Estimate Attendance</h4>
+                <h4>Step 1: Predict Attendance</h4>
               </div>
-              <p>Predicts expected student count using the day of week, meal shift, exams, and past attendance records.</p>
-              <div class="formula-chip">Inputs: Weekday, Meal Shift, Academic Calendar, Past Turnout</div>
+              <p>Estimates how many students will show up using the day of the week, meal time, and exam schedules.</p>
             </div>
 
             <div class="feature-box">
@@ -335,10 +334,9 @@
                 <span class="icon-bubble amber">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                 </span>
-                <h4>Step 2: Account for Dish Popularity</h4>
+                <h4>Step 2: Check Dish Demand</h4>
               </div>
-              <p>Adjusts demand for each dish based on historical popularity patterns (e.g. special dishes see higher demand).</p>
-              <div class="formula-chip">Dish Demand = Expected Diners &times; Historical Dish Popularity</div>
+              <p>Uses past mess records to see how popular today's dishes are so popular items get more preparation.</p>
             </div>
           </div>
 
@@ -348,11 +346,9 @@
                 <span class="icon-bubble sage">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                 </span>
-                <h4>Step 3: Convert to Pot Sizes</h4>
+                <h4>Step 3: Measure in Kitchen Units</h4>
               </div>
-              <p>Converts diner demand into the physical cooking vessels used in the kitchen.</p>
-              <div class="formula-chip">Prep Amount = Rounded to Full Pot and Tray Capacities</div>
-              <p class="sub-detail">Ensures cooks prepare food in realistic vessel batches.</p>
+              <p>Converts student numbers into clear, practical kitchen measurements: <strong>kg for gravies</strong>, <strong>Liters for dal</strong>, and <strong>Trays for chapatis</strong>.</p>
             </div>
 
             <div class="feature-box">
@@ -362,15 +358,14 @@
                 </span>
                 <h4>Step 4: Add Safety Buffer</h4>
               </div>
-              <p>Always includes a safe buffer so the mess never runs short. Running out of food is prevented completely.</p>
-              <div class="formula-chip">Safe Buffer: Priority is Zero Shortage during Service</div>
+              <p>Always includes a safe extra buffer so the kitchen never runs short during meal service.</p>
             </div>
           </div>
         </div>
 
         <div class="config-banner">
           <span class="config-title">Configurable per Hostel:</span>
-          <span>Easily adaptable to any hostel's menu items, schedules, and kitchen vessel capacities.</span>
+          <span>Easily adaptable to any hostel's menu items, meal timings, and kitchen equipment.</span>
         </div>
       </div>
     </section>
@@ -421,7 +416,7 @@
 
           <div class="sandbox-output">
             <div class="output-header">
-              <h4>Recommended Kitchen Cooking Batches</h4>
+              <h4>Recommended Quantities to Cook</h4>
               <span class="status-chip ok">Safety Buffer Included</span>
             </div>
 
@@ -434,7 +429,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
               </span>
               <div>
-                <strong>Outcome:</strong> Exact pots recommended with zero shortage risk and minimal food waste.
+                <strong>Simple Kitchen Units:</strong> Gives clear kg, Liters, and Trays with zero shortage risk.
               </div>
             </div>
           </div>
