@@ -345,28 +345,27 @@
       </div>
     </section>
 
-    <!-- SLIDE 7: Live Demo -->
-    <section class="slide" id="slide-7" data-index="7" data-title="Live Demo">
+    <!-- SLIDE 7: Kitchen Calculator -->
+    <section class="slide" id="slide-7" data-index="7" data-title="Kitchen Calculator">
       <div class="slide-content">
-        <div class="section-badge">06 &bull; Live Demo</div>
+        <div class="section-badge">06 &bull; Kitchen Calculator</div>
         <h2 class="slide-heading">Interactive Cooking Calculator</h2>
-        <p class="slide-desc">Move the slider and pick conditions to see cooking amounts update in real time.</p>
+        <p class="slide-desc">Adjust conditions to see how cooking amounts update in real time.</p>
 
         <div class="sandbox-container">
           <div class="sandbox-controls">
             <div class="sandbox-header">
               <span class="ctrl-title">Meal Inputs</span>
-              <span class="badge-live">Live</span>
             </div>
             
             <div class="control-row">
               <label>Hostel Resident Capacity:</label>
-              <input type="range" id="rngCapacity" min="400" max="1000" step="50" value="750" oninput="updateKitchenDemo()">
+              <input type="range" id="rngCapacity" min="400" max="1000" step="50" value="750" oninput="updateKitchenCalculator()">
             </div>
 
             <div class="control-row">
               <label>Day &amp; Meal Condition:</label>
-              <select id="selMealContext" onchange="updateKitchenDemo()">
+              <select id="selMealContext" onchange="updateKitchenCalculator()">
                 <option value="weekday" selected>Weekday (Normal Turnout)</option>
                 <option value="weekend">Weekend (Lower Turnout)</option>
                 <option value="exam">Exam Period (Peak Turnout)</option>
@@ -375,7 +374,7 @@
 
             <div class="control-row">
               <label>Menu Type:</label>
-              <select id="selMenuDish" onchange="updateKitchenDemo()">
+              <select id="selMenuDish" onchange="updateKitchenCalculator()">
                 <option value="special" selected>Special Menu (Paneer &amp; Dal Makhani)</option>
                 <option value="regular">Regular Menu (Mixed Veg &amp; Dal)</option>
               </select>

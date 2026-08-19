@@ -19,7 +19,7 @@ function initPresentation() {
   }
   
   goToSlide(currentSlideIndex);
-  updateKitchenDemo();
+  updateKitchenCalculator();
 }
 
 function goToSlide(index) {
@@ -228,8 +228,8 @@ function setupEventListeners() {
   }
 }
 
-// Simple demo logic for slide 7
-function updateKitchenDemo() {
+// Calculation logic for slide 7
+function updateKitchenCalculator() {
   const capacity = parseInt(document.getElementById('rngCapacity').value, 10);
   const mealContext = document.getElementById('selMealContext').value;
   const menuDish = document.getElementById('selMenuDish').value;
