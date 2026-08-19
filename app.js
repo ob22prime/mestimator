@@ -228,100 +228,59 @@ function setupEventListeners() {
   }
 }
 
-// Kitchen batch recommendation logic for slide 8
+// Simple demo logic for slide 7
 function updateKitchenDemo() {
   const capacity = parseInt(document.getElementById('rngCapacity').value, 10);
-  document.getElementById('lblCapacity').textContent = capacity;
-
   const mealContext = document.getElementById('selMealContext').value;
   const menuDish = document.getElementById('selMenuDish').value;
 
-  // Turnout multiplier based on meal and day context
-  let turnoutMultiplier = 0.85;
-  if (mealContext === 'weekday_lunch') {
-    turnoutMultiplier = 0.78;
-  } else if (mealContext === 'weekend_dinner') {
-    turnoutMultiplier = 0.70;
-  } else if (mealContext === 'exam_dinner') {
-    turnoutMultiplier = 0.94;
-  } else if (mealContext === 'fest_lunch') {
-    turnoutMultiplier = 0.62;
+  // Multiplier for expected diners
+  let multiplier = 0.8;
+  if (mealContext === 'weekend') multiplier = 0.65;
+  if (mealContext === 'exam') multiplier = 0.95;
+
+  const expectedDiners = Math.round(capacity * multiplier);
+  document.getElementById('dispEstDiners').textContent = `~${expectedDiners} Students`;
+
+  // Determine simple pot advice based on menu and diners
+  let curryPots = Math.max(1, Math.round(expectedDiners / 280));
+  let dalPots = Math.max(1, Math.round(expectedDiners / 250));
+  let ricePots = Math.max(1, Math.round(expectedDiners / 350));
+  let rotiTrays = Math.max(2, Math.round(expectedDiners / 70));
+
+  let curryName = "Special Paneer";
+  let dalName = "Dal Makhani";
+
+  if (menuDish === 'regular') {
+    curryName = "Mixed Vegetable";
+    dalName = "Yellow Dal";
+    curryPots = Math.max(1, Math.round(expectedDiners / 320));
   }
 
-  // Estimated Diners with confidence range
-  const estDiners = Math.round(capacity * turnoutMultiplier);
-  const confidenceMargin = Math.round(estDiners * 0.06);
-  document.getElementById('dispEstDiners').textContent = `${estDiners} ± ${confidenceMargin}`;
+  const items = [
+    { name: curryName, count: `${curryPots} Big Pots` },
+    { name: dalName, count: `${dalPots} Medium Pots` },
+    { name: "Steamed Rice", count: `${ricePots} Big Pot` },
+    { name: "Fresh Chapatis", count: `${rotiTrays} Trays` }
+  ];
 
-  // Status Quo comparison
-  const oldPrepPortions = Math.round(capacity * 0.90);
-  document.getElementById('dispOldPrep').textContent = `${oldPrepPortions} portions`;
-
-  // Safety buffer to guard against shortages
-  const targetPortions = Math.round(estDiners * 1.065);
-
-  // Dish breakdown based on selection
-  let dish1 = { name: "Shahi Paneer", portionKg: 0.16, split: 0.72, vesselCap: 35, unit: "kg" };
-  let dish2 = { name: "Dal Makhani", portionKg: 0.18, split: 0.85, vesselCap: 35, unit: "L" };
-  let dish3 = { name: "Basmati Rice", portionKg: 0.15, split: 0.75, vesselCap: 20, unit: "kg" };
-  let dish4 = { name: "Tandoori Roti", portionKg: 2.5, split: 0.95, vesselCap: 150, unit: "pcs" };
-
-  if (menuDish === 'mixveg') {
-    dish1 = { name: "Mixed Vegetable Gravy", portionKg: 0.14, split: 0.58, vesselCap: 35, unit: "kg" };
-    dish2 = { name: "Arhar Dal Tadka", portionKg: 0.18, split: 0.80, vesselCap: 35, unit: "L" };
-    dish3 = { name: "Jeera Rice", portionKg: 0.15, split: 0.75, vesselCap: 20, unit: "kg" };
-    dish4 = { name: "Phulka Chapati", portionKg: 2.6, split: 0.95, vesselCap: 150, unit: "pcs" };
-  } else if (menuDish === 'lauki') {
-    dish1 = { name: "Lauki Kofta Curry", portionKg: 0.13, split: 0.45, vesselCap: 35, unit: "kg" };
-    dish2 = { name: "Yellow Moong Dal", portionKg: 0.18, split: 0.75, vesselCap: 35, unit: "L" };
-    dish3 = { name: "Plain Rice", portionKg: 0.15, split: 0.70, vesselCap: 20, unit: "kg" };
-    dish4 = { name: "Phulka Chapati", portionKg: 2.4, split: 0.95, vesselCap: 150, unit: "pcs" };
-  }
-
-  const items = [dish1, dish2, dish3, dish4];
   const listEl = document.getElementById('prepList');
-  listEl.innerHTML = '';
-
-  let totalMestimatorKg = 0;
-  let totalOldKg = 0;
-
-  items.forEach(item => {
-    let reqQty = 0;
-    let vesselText = "";
-    
-    if (item.unit === 'pcs') {
-      reqQty = Math.round(targetPortions * item.portionKg * item.split);
-      reqQty = Math.ceil(reqQty / 25) * 25;
-      vesselText = `${Math.ceil(reqQty / item.vesselCap)} Hot Cases`;
-      totalMestimatorKg += (reqQty * 0.035);
-      totalOldKg += (oldPrepPortions * item.portionKg * item.split * 0.035);
-    } else {
-      reqQty = (targetPortions * item.portionKg * item.split);
-      reqQty = Math.ceil(reqQty / 2.5) * 2.5;
-      const pots = (reqQty / item.vesselCap).toFixed(1);
-      vesselText = `${reqQty} ${item.unit} (${pots} pots)`;
-      totalMestimatorKg += reqQty;
-      totalOldKg += (oldPrepPortions * item.portionKg * item.split);
-    }
-
-    const row = document.createElement('div');
-    row.className = 'prep-item-row';
-    row.innerHTML = `
-      <div>
-        <span class="item-name">${item.name}</span>
-      </div>
-      <div class="item-batch-info">
-        <div class="item-qty">${reqQty} ${item.unit}</div>
-        <div class="item-vessels">${vesselText}</div>
-      </div>
-    `;
-    listEl.appendChild(row);
-  });
-
-  // Calculate waste prevented
-  const savedKg = Math.max(0, Math.round(totalOldKg - totalMestimatorKg));
-  const savedInr = Math.round(savedKg * 80);
-  document.getElementById('dispSavedKg').textContent = `~${savedKg} kg cooked food (₹${savedInr.toLocaleString('en-IN')} saved)`;
+  if (listEl) {
+    listEl.innerHTML = '';
+    items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'prep-item-row';
+      row.innerHTML = `
+        <div>
+          <span class="item-name">${item.name}</span>
+        </div>
+        <div class="item-batch-info">
+          <div class="item-qty" style="font-size: 0.9rem;">${item.count}</div>
+        </div>
+      `;
+      listEl.appendChild(row);
+    });
+  }
 }
 
 // Initialize on DOM load

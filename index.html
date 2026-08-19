@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=7.0">
+  <link rel="stylesheet" href="style.css?v=8.0">
 </head>
 <body>
 
@@ -86,7 +86,7 @@
 
         <div class="cover-footer-bar">
           <div class="core-statement">
-            <strong>In Short:</strong> "Predict how many students will eat &rarr; Tell the cook exactly how much to prepare &rarr; Less food wasted, nobody goes hungry."
+            <strong>In Short:</strong> "Predict how many students will eat &rarr; Recommend exact cooking quantities &rarr; Cut food waste with zero shortages."
           </div>
           <div class="key-hint">Press <kbd>&rarr;</kbd> or <kbd>Space</kbd> to start</div>
         </div>
@@ -98,7 +98,7 @@
       <div class="slide-content">
         <div class="section-badge">01 &bull; Problem</div>
         <h2 class="slide-heading">What Is the Problem?</h2>
-        <p class="slide-desc">Hostel mess cooks too much food every day because they don't know how many students will show up.</p>
+        <p class="slide-desc">Hostel mess cooks food based on rough guesswork because daily student attendance keeps changing.</p>
 
         <div class="two-col-grid">
           <div class="col-card">
@@ -109,9 +109,9 @@
               <h3>The Problem Today</h3>
             </div>
             <ul class="bullet-list">
-              <li><strong>Blind cooking:</strong> Kitchen makes food for ~800 students every meal, but only 500 to 650 actually show up.</li>
-              <li><strong>Attendance changes a lot:</strong> Weekends, exams, festivals, popular vs unpopular dishes all change how many students eat.</li>
-              <li><strong>Food gets thrown away:</strong> Cooked food can't be stored. Whatever is extra goes to waste every single day.</li>
+              <li><strong>Fixed Cooking Guesswork:</strong> Kitchen staff cook roughly the same large batch every meal regardless of actual turnout.</li>
+              <li><strong>Changing Student Attendance:</strong> Weekends, exams, and popular vs unpopular dishes cause student count to rise and fall unpredictably.</li>
+              <li><strong>Extra Food Wasted:</strong> Cooked food cannot be stored for long, so all surplus food gets thrown away.</li>
             </ul>
           </div>
 
@@ -123,17 +123,17 @@
               <h3>What Our Project Does</h3>
             </div>
             <ul class="bullet-list">
-              <li><strong>Predicts how many students will eat</strong> based on day, exams, and which dish is on the menu.</li>
-              <li><strong>Tells the cook exact amounts</strong> like "Make 70 kg Paneer, 90 L Dal, 1400 Rotis" instead of guessing.</li>
-              <li><strong>Adds a small safety buffer</strong> so food never runs out and waste is reduced significantly.</li>
-              <li><strong>We are collecting real data</strong> from the hostel mess since August 2026 to test this.</li>
+              <li><strong>Predicts Expected Eaters:</strong> Estimates student attendance using the day of the week, exams, and menu items.</li>
+              <li><strong>Suggests Practical Cooking Pots:</strong> Converts expected eaters into actual pot and tray counts for the cooks.</li>
+              <li><strong>Includes a Safe Buffer:</strong> Always adds a small buffer so the kitchen never runs out of food.</li>
+              <li><strong>Uses Real Mess Logs:</strong> We are recording daily plate counts and leftover data from the hostel mess to validate this.</li>
             </ul>
           </div>
         </div>
 
         <div class="callout-banner">
           <span class="banner-tag">What the Mess Manager Told Us</span>
-          <p>&ldquo;We don't need a fancy student voting app. Just tell us whether to cook 45 kg or 65 kg before we light the stove.&rdquo;</p>
+          <p>&ldquo;We don't need a complicated student voting app. Just tell us how many pots to cook before we light the stove.&rdquo;</p>
         </div>
       </div>
     </section>
@@ -143,7 +143,7 @@
       <div class="slide-content">
         <div class="section-badge">02 &bull; Scope</div>
         <h2 class="slide-heading">What We Will Build</h2>
-        <p class="slide-desc">What our project delivers this semester.</p>
+        <p class="slide-desc">Project scope and deliverables for this semester.</p>
 
         <div class="scope-comparison-grid" style="grid-template-columns: 1fr;">
           <div class="scope-box scope-in">
@@ -151,94 +151,94 @@
               <span class="icon-bubble sage">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
               </span>
-              <h3>Project Deliverables</h3>
+              <h3>Core Deliverables</h3>
             </div>
             <ul class="scope-list">
-              <li><strong>A simple web app</strong> for the kitchen staff to view daily cooking advice.</li>
-              <li><strong>A prediction system</strong> that guesses how many students will eat each meal using past data, day of week, exams, and dish popularity.</li>
-              <li><strong>Cooking quantity calculator</strong> that converts student count into kg, liters, and number of pots to cook.</li>
-              <li><strong>Safety margin</strong> so food never runs out (e.g. "560 students expected, give or take 35").</li>
-              <li><strong>Works for any hostel</strong> by changing the menu, pot sizes, and meal timings.</li>
-              <li><strong>Works offline</strong> so the kitchen can use it even when Wi-Fi is down.</li>
+              <li><strong>Kitchen Web App:</strong> Clean interface for the mess manager and cooks to check daily cooking recommendations.</li>
+              <li><strong>Attendance Prediction Model:</strong> Estimates how many students will eat based on historical patterns, weekdays, and exams.</li>
+              <li><strong>Dish Quantity Calculator:</strong> Translates student attendance into exact cooking pots, liters of dal, and trays of chapatis.</li>
+              <li><strong>Shortage Safety Buffer:</strong> Automatically adds safe margins so students never face food shortages.</li>
+              <li><strong>Configurable for Any Mess:</strong> Easily adjustable for any hostel menu, timing, and pot capacities.</li>
+              <li><strong>Offline Support:</strong> Continues functioning even if mess kitchen Wi-Fi is temporarily unavailable.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: How It Works (Daily Flow) -->
+    <!-- SLIDE 4: Daily Flow -->
     <section class="slide" id="slide-4" data-index="4" data-title="How It Works">
       <div class="slide-content">
         <div class="section-badge">03 &bull; Daily Flow</div>
         <h2 class="slide-heading">How It Works (Step by Step)</h2>
-        <p class="slide-desc">What happens every day, from morning to after dinner.</p>
+        <p class="slide-desc">The daily decision cycle from morning menu selection to post-meal leftover logging.</p>
 
         <div class="workflow-steps-container">
           <div class="wf-step">
             <div class="wf-num">01</div>
-            <h4>Pick Today's Menu</h4>
-            <p>Select the meal (Breakfast / Lunch / Dinner) and today's dishes.</p>
+            <h4>Select Today's Menu</h4>
+            <p>Pick the meal shift and scheduled dishes.</p>
           </div>
           <div class="wf-arrow">&rarr;</div>
           
           <div class="wf-step">
             <div class="wf-num">02</div>
-            <h4>Predict Student Count</h4>
-            <p>System checks the day and exams to guess how many will eat.</p>
+            <h4>Predict Eaters</h4>
+            <p>Estimate attendance based on day, schedule, and exams.</p>
           </div>
           <div class="wf-arrow">&rarr;</div>
 
           <div class="wf-step">
             <div class="wf-num">03</div>
             <h4>Split by Dish</h4>
-            <p>If Paneer is popular, more goes to Paneer. If Lauki, less gets cooked.</p>
+            <p>Adjust quantities based on dish popularity.</p>
           </div>
           <div class="wf-arrow">&rarr;</div>
 
           <div class="wf-step">
             <div class="wf-num">04</div>
-            <h4>Show Cooking Amounts</h4>
-            <p>Display "Cook 2 big pots of Dal (70 kg)" in simple kitchen language.</p>
+            <h4>Display Pots to Cook</h4>
+            <p>Show exact pot and tray counts on screen.</p>
           </div>
           <div class="wf-arrow">&rarr;</div>
 
           <div class="wf-step">
             <div class="wf-num">05</div>
-            <h4>Cook Confirms or Changes</h4>
-            <p>Manager taps "OK" or changes the number if they disagree.</p>
+            <h4>Cook Review</h4>
+            <p>Manager confirms advice or makes quick adjustments.</p>
           </div>
           <div class="wf-arrow">&rarr;</div>
 
           <div class="wf-step">
             <div class="wf-num">06</div>
-            <h4>Record Leftovers</h4>
-            <p>After dinner, staff logs how much food was left to improve next time.</p>
+            <h4>Log Leftovers</h4>
+            <p>Record leftover pots after meal to refine future models.</p>
           </div>
         </div>
 
         <div class="workflow-diagram-card">
-          <div class="diagram-title">Simple Data Flow</div>
+          <div class="diagram-title">System Data Flow</div>
           <div class="flowchart-box">
-            <div class="flow-node highlight">Past Mess Records + Academic Calendar + Dish Popularity</div>
+            <div class="flow-node highlight">Past Attendance Records + Academic Calendar + Dish Popularity</div>
             <div class="flow-connector">&darr;</div>
-            <div class="flow-node">Mestimator Prediction (How many will eat + Which dish is popular)</div>
+            <div class="flow-node">Mestimator Prediction (Expected Diners + Dish Split)</div>
             <div class="flow-connector">&darr;</div>
-            <div class="flow-node">Cooking Calculator (Convert to kg, liters, and number of pots)</div>
+            <div class="flow-node">Cooking Calculator (Pots, Liters, and Trays with Safety Buffer)</div>
             <div class="flow-connector">&darr;</div>
-            <div class="flow-node action">Kitchen Screen &rarr; Cook says "OK" or changes the number</div>
+            <div class="flow-node action">Kitchen Screen &rarr; Cook Confirms Batch Advice</div>
             <div class="flow-connector">&darr;</div>
-            <div class="flow-node">After Meal &rarr; Log leftover food to improve next prediction</div>
+            <div class="flow-node">After Meal &rarr; Log Leftover Food to Improve Next Advice</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 5: Who Uses It -->
+    <!-- SLIDE 5: Target Users -->
     <section class="slide" id="slide-5" data-index="5" data-title="Users">
       <div class="slide-content">
         <div class="section-badge">04 &bull; Users</div>
         <h2 class="slide-heading">Who Uses This System?</h2>
-        <p class="slide-desc">Three types of people in the hostel mess will use this tool.</p>
+        <p class="slide-desc">Designed to be simple and practical for everyone involved in hostel dining.</p>
 
         <div class="personas-grid">
           <div class="persona-card">
@@ -248,15 +248,15 @@
               </span>
               <div>
                 <h4>Mess Manager</h4>
-                <span class="role-sub">Main Daily User</span>
+                <span class="role-sub">Daily Planner</span>
               </div>
             </div>
             <div class="persona-body">
-              <p><strong>What they do:</strong> Orders raw materials and decides how much food to cook each day.</p>
-              <p><strong>What they need:</strong> A simple morning suggestion like "Cook 70 kg Paneer today" that they can accept or change.</p>
+              <p><strong>Role:</strong> Issues raw ingredients and oversees daily kitchen cooking quantities.</p>
+              <p><strong>Needs:</strong> A clear daily recommendation before cooking starts that is easy to accept or adjust.</p>
               <div class="tag-row">
-                <span class="ptag">Plans Daily</span>
-                <span class="ptag">Orders Supplies</span>
+                <span class="ptag">Daily Planning</span>
+                <span class="ptag">Ration Issue</span>
               </div>
             </div>
           </div>
@@ -267,16 +267,16 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
               </span>
               <div>
-                <h4>Head Cook &amp; Kitchen Staff</h4>
-                <span class="role-sub">Does the Cooking</span>
+                <h4>Head Cook &amp; Staff</h4>
+                <span class="role-sub">Kitchen Execution</span>
               </div>
             </div>
             <div class="persona-body">
-              <p><strong>What they do:</strong> Cooks food in big pots and counts leftover containers after meals.</p>
-              <p><strong>What they need:</strong> Clear instructions like "Cook 2 big pots of Dal" on a big, easy-to-read screen.</p>
+              <p><strong>Role:</strong> Prepares meals in large pots and counts leftover containers after service.</p>
+              <p><strong>Needs:</strong> Practical pot and tray numbers on a high-contrast, easy-to-read screen.</p>
               <div class="tag-row">
-                <span class="ptag">Easy Screen</span>
-                <span class="ptag">Pot Counts</span>
+                <span class="ptag">Clear Pot Counts</span>
+                <span class="ptag">Simple Display</span>
               </div>
             </div>
           </div>
@@ -288,24 +288,24 @@
               </span>
               <div>
                 <h4>Hostel Warden</h4>
-                <span class="role-sub">Checks Reports</span>
+                <span class="role-sub">Supervision &amp; Audit</span>
               </div>
             </div>
             <div class="persona-body">
-              <p><strong>What they do:</strong> Reviews food quality, budget, and makes sure students are not going hungry.</p>
-              <p><strong>What they need:</strong> Weekly report showing how much food waste was reduced and money saved.</p>
+              <p><strong>Role:</strong> Monitors mess budget, food hygiene, and ensures zero shortage complaints.</p>
+              <p><strong>Needs:</strong> Weekly reports showing food waste reduction and verified dining reliability.</p>
               <div class="tag-row">
                 <span class="ptag">Weekly Reports</span>
-                <span class="ptag">Budget Tracking</span>
+                <span class="ptag">Audit &amp; Quality</span>
               </div>
             </div>
           </div>
         </div>
 
         <div class="ux-principles-grid">
-          <div class="ux-pill"><strong>Super Easy:</strong> Just 2 taps to see today's cooking plan and confirm it.</div>
-          <div class="ux-pill"><strong>Real Kitchen Units:</strong> Shows kg, liters, and pot counts (not confusing percentages).</div>
-          <div class="ux-pill"><strong>Works Without Internet:</strong> Kitchen Wi-Fi drops often, the app still works offline.</div>
+          <div class="ux-pill"><strong>Fast &amp; Simple:</strong> Quick to check and confirm daily cooking batches.</div>
+          <div class="ux-pill"><strong>Kitchen Units:</strong> Displays practical pot and tray counts rather than abstract numbers.</div>
+          <div class="ux-pill"><strong>Works Offline:</strong> Operates seamlessly even if kitchen Wi-Fi is down.</div>
         </div>
       </div>
     </section>
@@ -315,7 +315,7 @@
       <div class="slide-content">
         <div class="section-badge">05 &bull; Core Logic</div>
         <h2 class="slide-heading">How the Prediction Works</h2>
-        <p class="slide-desc">4 simple steps to go from "800 registered students" to "Cook 70 kg Paneer."</p>
+        <p class="slide-desc">4 simple steps to convert uncertain attendance into exact kitchen cooking pots.</p>
 
         <div class="engine-grid">
           <div class="engine-col">
@@ -324,10 +324,10 @@
                 <span class="icon-bubble forest">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
                 </span>
-                <h4>Step 1: Guess How Many Will Eat</h4>
+                <h4>Step 1: Estimate Attendance</h4>
               </div>
-              <p>Looks at what day it is, if there are exams, and last week's numbers to predict attendance.</p>
-              <div class="formula-chip">Inputs: Day of Week, Meal Time, Exams, Last Week's Attendance</div>
+              <p>Predicts expected student count using the day of week, meal shift, exams, and past attendance records.</p>
+              <div class="formula-chip">Inputs: Weekday, Meal Shift, Academic Calendar, Past Turnout</div>
             </div>
 
             <div class="feature-box">
@@ -335,10 +335,10 @@
                 <span class="icon-bubble amber">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                 </span>
-                <h4>Step 2: Split by Dish Popularity</h4>
+                <h4>Step 2: Account for Dish Popularity</h4>
               </div>
-              <p>If Paneer is served, more students eat. If Lauki is served, fewer show up. We use past data to know this.</p>
-              <div class="formula-chip">Example: 70% take Paneer, 85% take Dal, only 45% take Lauki</div>
+              <p>Adjusts demand for each dish based on historical popularity patterns (e.g. special dishes see higher demand).</p>
+              <div class="formula-chip">Dish Demand = Expected Diners &times; Historical Dish Popularity</div>
             </div>
           </div>
 
@@ -348,11 +348,11 @@
                 <span class="icon-bubble sage">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                 </span>
-                <h4>Step 3: Convert to Cooking Amounts</h4>
+                <h4>Step 3: Convert to Pot Sizes</h4>
               </div>
-              <p>Turns the student count into actual kitchen numbers the cook understands.</p>
-              <div class="formula-chip">Example: 560 students eating Paneer = 70 kg = 2 big pots</div>
-              <p class="sub-detail">Rounds up to real pot sizes used in the kitchen (35 kg pots, 20 kg pots, etc).</p>
+              <p>Converts diner demand into the physical cooking vessels used in the kitchen.</p>
+              <div class="formula-chip">Prep Amount = Rounded to Full Pot and Tray Capacities</div>
+              <p class="sub-detail">Ensures cooks prepare food in realistic vessel batches.</p>
             </div>
 
             <div class="feature-box">
@@ -362,15 +362,15 @@
                 </span>
                 <h4>Step 4: Add Safety Buffer</h4>
               </div>
-              <p>We always add a little extra (~6.5%) so food never runs out. Running out of food is worse than having a little extra.</p>
-              <div class="formula-chip">Better to have 5 kg extra than 50 students with no food</div>
+              <p>Always includes a safe buffer so the mess never runs short. Running out of food is prevented completely.</p>
+              <div class="formula-chip">Safe Buffer: Priority is Zero Shortage during Service</div>
             </div>
           </div>
         </div>
 
         <div class="config-banner">
-          <span class="config-title">Works for Any Hostel:</span>
-          <span>Just change the menu, pot sizes, and meal times to use it in a different hostel.</span>
+          <span class="config-title">Configurable per Hostel:</span>
+          <span>Easily adaptable to any hostel's menu items, schedules, and kitchen vessel capacities.</span>
         </div>
       </div>
     </section>
@@ -379,60 +379,54 @@
     <section class="slide" id="slide-7" data-index="7" data-title="Live Demo">
       <div class="slide-content">
         <div class="section-badge">06 &bull; Live Demo</div>
-        <h2 class="slide-heading">Try It: Kitchen Cooking Calculator</h2>
-        <p class="slide-desc">Move the slider and change the options to see how the cooking amounts change in real time.</p>
+        <h2 class="slide-heading">Interactive Cooking Calculator Demo</h2>
+        <p class="slide-desc">Select different meal conditions to see how recommended pot quantities update automatically.</p>
 
         <div class="sandbox-container">
           <div class="sandbox-controls">
             <div class="sandbox-header">
-              <span class="ctrl-title">Change Inputs Here</span>
-              <span class="badge-live">Live</span>
+              <span class="ctrl-title">Meal Inputs</span>
+              <span class="badge-live">Live Demo</span>
             </div>
             
             <div class="control-row">
-              <label>Total Students in Hostel: <strong id="lblCapacity">800</strong></label>
-              <input type="range" id="rngCapacity" min="400" max="1200" step="50" value="800" oninput="updateKitchenDemo()">
+              <label>Hostel Resident Capacity:</label>
+              <input type="range" id="rngCapacity" min="400" max="1000" step="50" value="750" oninput="updateKitchenDemo()">
             </div>
 
             <div class="control-row">
-              <label>What Day and Meal?</label>
+              <label>Day &amp; Meal Condition:</label>
               <select id="selMealContext" onchange="updateKitchenDemo()">
-                <option value="weekday_lunch">Weekday Lunch (Normal day, most students eat)</option>
-                <option value="weekend_dinner" selected>Weekend Dinner (Many students go out to eat)</option>
-                <option value="exam_dinner">Exam Week Dinner (Almost everyone eats in mess)</option>
-                <option value="fest_lunch">Festival Day Lunch (Students are scattered)</option>
+                <option value="weekday" selected>Weekday (Regular Turnout)</option>
+                <option value="weekend">Weekend (Lower Turnout)</option>
+                <option value="exam">Exam Period (Peak Turnout)</option>
               </select>
             </div>
 
             <div class="control-row">
-              <label>What's on the Menu?</label>
+              <label>Menu Type:</label>
               <select id="selMenuDish" onchange="updateKitchenDemo()">
-                <option value="paneer" selected>Shahi Paneer + Dal (Everyone's favourite)</option>
-                <option value="mixveg">Mixed Veg + Arhar Dal (Normal demand)</option>
-                <option value="lauki">Lauki + Yellow Dal (Fewer students eat this)</option>
+                <option value="special" selected>Special Menu (Paneer &amp; Dal Makhani)</option>
+                <option value="regular">Regular Menu (Mixed Veg &amp; Dal)</option>
               </select>
             </div>
 
-            <div class="stat-summary-row">
+            <div class="stat-summary-row" style="grid-template-columns: 1fr;">
               <div class="stat-box">
-                <span class="stat-lbl">Students Expected</span>
-                <span class="stat-val" id="dispEstDiners">560 &plusmn; 35</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-lbl">Old Method (Wasteful)</span>
-                <span class="stat-val text-strike" id="dispOldPrep">720 portions</span>
+                <span class="stat-lbl">Predicted Diners</span>
+                <span class="stat-val" id="dispEstDiners">~600 Students</span>
               </div>
             </div>
           </div>
 
           <div class="sandbox-output">
             <div class="output-header">
-              <h4>What the Cook Should Prepare</h4>
-              <span class="status-chip ok">+6.5% safety extra</span>
+              <h4>Recommended Kitchen Cooking Batches</h4>
+              <span class="status-chip ok">Safety Buffer Included</span>
             </div>
 
             <div class="prep-items-list" id="prepList">
-              <!-- Filled by app.js -->
+              <!-- Dynamically updated by app.js -->
             </div>
 
             <div class="savings-callout">
@@ -440,8 +434,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
               </span>
               <div>
-                <strong>Food Saved This Meal:</strong>
-                <span id="dispSavedKg">~18.5 kg food (&#8377;1,480 saved)</span> and no one goes hungry.
+                <strong>Outcome:</strong> Exact pots recommended with zero shortage risk and minimal food waste.
               </div>
             </div>
           </div>
@@ -453,12 +446,12 @@
       </div>
     </section>
 
-    <!-- SLIDE 8: Performance, Security & Quality -->
+    <!-- SLIDE 8: Speed, Privacy & Reliability -->
     <section class="slide" id="slide-8" data-index="8" data-title="Quality & Safety">
       <div class="slide-content">
         <div class="section-badge">07 &bull; Quality</div>
         <h2 class="slide-heading">Speed, Privacy &amp; Reliability</h2>
-        <p class="slide-desc">Making sure the app is fast, safe, and always works when the kitchen needs it.</p>
+        <p class="slide-desc">Ensuring the tool is fast, secure, and always dependable during kitchen operations.</p>
 
         <div class="three-col-cards">
           <div class="quality-card">
@@ -466,13 +459,13 @@
               <span class="icon-bubble amber">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
               </span>
-              <h3>Fast &amp; Reliable</h3>
+              <h3>Fast &amp; Available</h3>
             </div>
             <ul class="q-list">
-              <li><strong>Quick Results:</strong> Cooking suggestions appear in under half a second.</li>
-              <li><strong>Works Offline:</strong> Kitchen Wi-Fi goes down often, the app still works completely.</li>
-              <li><strong>Auto Sync:</strong> When internet comes back, data syncs automatically.</li>
-              <li><strong>Always Available:</strong> Works during all meal hours (6 AM to 9 PM).</li>
+              <li><strong>Instant Results:</strong> Cooking advice generates immediately upon meal selection.</li>
+              <li><strong>Offline Operation:</strong> Functions completely offline when kitchen Wi-Fi drops.</li>
+              <li><strong>Automatic Sync:</strong> Saves and syncs outcome logs once internet is re-established.</li>
+              <li><strong>High Uptime:</strong> Always ready when kitchen preparation begins.</li>
             </ul>
           </div>
 
@@ -481,18 +474,18 @@
               <span class="icon-bubble forest">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
               </span>
-              <h3>Privacy &amp; Access Control</h3>
+              <h3>Privacy &amp; Permissions</h3>
             </div>
             <ul class="q-list">
-              <li><strong>No Student Data Stored:</strong> We only save total plate counts and food weights. No names, no roll numbers, no photos.</li>
-              <li><strong>Who Can Do What:</strong>
+              <li><strong>Zero Personal Data:</strong> Only aggregate plate counts and food weights are logged. No names or roll numbers.</li>
+              <li><strong>Role Permissions:</strong>
                 <ul>
-                  <li><em>Manager:</em> Can edit and change suggestions.</li>
-                  <li><em>Cook:</em> Can view amounts and enter leftovers.</li>
-                  <li><em>Warden:</em> Can only read weekly reports.</li>
+                  <li><em>Manager:</em> Can adjust daily batch recommendations.</li>
+                  <li><em>Cook:</em> Views cooking pots and enters leftover counts.</li>
+                  <li><em>Warden:</em> Views weekly summaries and waste reports.</li>
                 </ul>
               </li>
-              <li><strong>Change Log:</strong> Every time someone changes a suggestion, the reason is saved.</li>
+              <li><strong>Audit History:</strong> Logs any manual overrides for transparency.</li>
             </ul>
           </div>
 
@@ -501,12 +494,12 @@
               <span class="icon-bubble sage">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
               </span>
-              <h3>Easy to Use &amp; Safe Fallback</h3>
+              <h3>Usability &amp; Safety</h3>
             </div>
             <ul class="q-list">
-              <li><strong>Big Buttons:</strong> Easy to tap even with wet or oily hands in the kitchen.</li>
-              <li><strong>Safe Default:</strong> If something goes wrong, the app uses the average of the last 14 days as a safe guess.</li>
-              <li><strong>Clean Code:</strong> Prediction logic, screen, and data storage are kept separate so it's easy to update.</li>
+              <li><strong>Clear Interface:</strong> Large tap targets and clear text designed for kitchen environments.</li>
+              <li><strong>Safe Fallback:</strong> Defaults to recent rolling averages if any inputs are missing.</li>
+              <li><strong>Modular Structure:</strong> Separates calculation logic from UI display for easy maintenance.</li>
             </ul>
           </div>
         </div>
@@ -518,61 +511,60 @@
       <div class="slide-content">
         <div class="section-badge">08 &bull; Plan</div>
         <h2 class="slide-heading">Semester Plan</h2>
-        <p class="slide-desc">What we are doing step by step, and what data we are collecting from the hostel mess.</p>
+        <p class="slide-desc">Phased roadmap and data collection protocol with the hostel mess staff.</p>
 
         <div class="gantt-container">
           <div class="gantt-header">
-            <span class="gantt-title">Project Timeline</span>
-
+            <span class="gantt-title">Project Execution Steps</span>
           </div>
 
           <div class="gantt-track">
             <div class="gantt-phase phase-1" style="width: 25%;">
               <span class="p-tag">Step 1</span>
-              <h4>Collect Data</h4>
-              <p>Record daily plate counts, leftovers, and menu from the mess staff.</p>
+              <h4>Collect Baseline Data</h4>
+              <p>Record daily plate counts, meal menus, and leftover food with mess staff.</p>
             </div>
             <div class="gantt-phase phase-2" style="width: 25%;">
               <span class="p-tag">Step 2</span>
-              <h4>Build the App</h4>
-              <p>Write the prediction code and build the web interface for the kitchen.</p>
+              <h4>Build System &amp; UI</h4>
+              <p>Develop prediction algorithms and build the kitchen web interface.</p>
             </div>
             <div class="gantt-phase phase-3" style="width: 25%;">
               <span class="p-tag">Step 3</span>
-              <h4>Test with Real Kitchen</h4>
-              <p>Give daily cooking suggestions to the mess manager and track if they follow them.</p>
+              <h4>Kitchen Pilot Testing</h4>
+              <p>Provide daily recommendations to the mess manager and track accuracy.</p>
             </div>
             <div class="gantt-phase phase-4" style="width: 25%;">
               <span class="p-tag">Step 4</span>
-              <h4>Results &amp; Report</h4>
-              <p>Compare our predictions vs old method. Write final report and present.</p>
+              <h4>Evaluation &amp; Report</h4>
+              <p>Compare against baseline methods, analyze food saved, and prepare defense.</p>
             </div>
           </div>
         </div>
 
         <div class="two-col-grid" style="margin-top: 1rem;">
           <div class="feasibility-card">
-            <h4>Data We Collect Every Day (Started 10 Aug 2026)</h4>
+            <h4>Data Fields Collected Daily (Started 10 Aug 2026)</h4>
             <div class="data-fields-grid">
               <span class="df-tag">Date &amp; Meal</span>
               <span class="df-tag">Menu Dishes</span>
-              <span class="df-tag">Total Residents</span>
-              <span class="df-tag">Manager's Guess</span>
+              <span class="df-tag">Registered Residents</span>
+              <span class="df-tag">Manager's Estimate</span>
               <span class="df-tag">Actual Plates Served</span>
-              <span class="df-tag">Food Prepared (kg)</span>
-              <span class="df-tag">Leftover Food (kg)</span>
-              <span class="df-tag">Did Food Run Out?</span>
-              <span class="df-tag">Exam Week?</span>
-              <span class="df-tag">Any Manual Changes</span>
+              <span class="df-tag">Food Prepared</span>
+              <span class="df-tag">Leftover Food</span>
+              <span class="df-tag">Shortage Incidents</span>
+              <span class="df-tag">Exam Periods</span>
+              <span class="df-tag">Manual Overrides</span>
             </div>
           </div>
 
           <div class="feasibility-card highlight-card">
-            <h4>Why This Is Doable</h4>
+            <h4>Practical Feasibility</h4>
             <ul class="bullet-list-sm">
-              <li><strong>Mess Manager agreed:</strong> He shares daily leftover counts with us after dinner.</li>
-              <li><strong>We know the pot sizes:</strong> Big pot = 35 kg, Medium pot = 20 kg, Gravy pot = 15 L, Roti tray = 60 pieces.</li>
-              <li><strong>Quick and Easy:</strong> Takes the cook less than 2 minutes a day to check the app and log leftovers.</li>
+              <li><strong>Staff Cooperation:</strong> Mess manager shares daily outcome counts after meal service.</li>
+              <li><strong>Standard Pot Capacities:</strong> Vessel sizes are mapped directly from kitchen equipment.</li>
+              <li><strong>Minimal Effort:</strong> Requires only a few moments for staff to verify advice and log leftovers.</li>
             </ul>
           </div>
         </div>
@@ -584,57 +576,57 @@
       <div class="slide-content">
         <div class="section-badge">09 &bull; Summary</div>
         <h2 class="slide-heading">Conclusion &amp; References</h2>
-        <p class="slide-desc">How we will measure success and the research papers behind our approach.</p>
+        <p class="slide-desc">How Mestimator improves upon current practices and the academic backing supporting our project.</p>
 
         <div class="eval-grid">
           <div class="eval-card">
-            <div class="eval-title">How We Compare Against Current Method</div>
+            <div class="eval-title">Comparison Against Baseline Methods</div>
             <table class="eval-table">
               <thead>
                 <tr>
                   <th>Method</th>
-                  <th>What It Does</th>
-                  <th>How Good?</th>
+                  <th>How It Works</th>
+                  <th>Outcome</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Current Way</strong></td>
-                  <td>Manager guesses based on experience</td>
-                  <td>Often wrong, lots of waste</td>
+                  <td><strong>Current Status Quo</strong></td>
+                  <td>Fixed intuition-based preparation</td>
+                  <td>Frequent overcooking and food waste</td>
                 </tr>
                 <tr>
-                  <td><strong>Last Week Same Day</strong></td>
-                  <td>Cook same as last Monday for this Monday</td>
-                  <td>Better, but ignores exams and dish changes</td>
+                  <td><strong>Same Day Last Week</strong></td>
+                  <td>Repeat same day from previous week</td>
+                  <td>Better, but ignores exams and menu variations</td>
                 </tr>
                 <tr>
-                  <td><strong>7-Day Average</strong></td>
-                  <td>Average of last 7 days</td>
-                  <td>Smoother, but still misses patterns</td>
+                  <td><strong>Rolling Moving Average</strong></td>
+                  <td>Average of recent historical days</td>
+                  <td>Smoother, but misses sudden calendar spikes</td>
                 </tr>
                 <tr class="highlight-row">
                   <td><strong>Mestimator (Ours)</strong></td>
-                  <td>Uses day, exams, and dish popularity together</td>
-                  <td><strong>Less waste, no one goes hungry</strong></td>
+                  <td>Feature-aware prediction + safe batch quantizer</td>
+                  <td><strong>Reduced food waste &amp; zero shortages</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div class="eval-card">
-            <div class="eval-title">How We Measure Success</div>
+            <div class="eval-title">Success Evaluation Criteria</div>
             <ul class="metric-list">
-              <li><strong>Prediction Accuracy:</strong> How close our guess is to the actual number of students who ate.</li>
-              <li><strong>Waste Reduction:</strong> How many kg of food we saved compared to the old method.</li>
-              <li><strong>No Shortages:</strong> Students should never go hungry because we undercooked.</li>
-              <li><strong>Cook Trusts It:</strong> The mess manager follows our suggestion at least 80% of the time.</li>
+              <li><strong>Prediction Accuracy:</strong> Closeness of forecasted attendance to actual plates served.</li>
+              <li><strong>Waste Reduction:</strong> Measured reduction in surplus leftover food compared to baseline.</li>
+              <li><strong>Service Reliability:</strong> Zero unmanaged food shortage events during meal service.</li>
+              <li><strong>Staff Usability:</strong> Consistent daily usage and trust by kitchen staff.</li>
             </ul>
           </div>
         </div>
 
         <div class="references-box">
-          <div class="ref-title">Research Papers We Referred</div>
+          <div class="ref-title">Academic &amp; Regulatory References</div>
           <div class="ref-links">
             <a href="https://www.mdpi.com/2071-1050/17/2/379" target="_blank" rel="noreferrer" class="ref-item">
               <span>MDPI Sustainability (2025): <em>Forecasting Meal Demand in University Dining Facilities</em> [17(2), 379]</span>
@@ -650,7 +642,7 @@
 
         <div class="conclusion-cta">
           <div class="cta-text">
-            <strong>Data Collection Started:</strong> We have been collecting daily meal data from the hostel mess since 10 Aug 2026.
+            <strong>Data Collection Active:</strong> We have been recording daily meal attendance and leftover logs from the hostel mess since 10 Aug 2026.
           </div>
           <div class="viva-badge">Open for Questions &amp; Review</div>
         </div>
@@ -694,6 +686,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=4.0"></script>
+  <script src="app.js?v=8.0"></script>
 </body>
 </html>
